@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Navbar from '@/components/Navbar';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('mission');
@@ -52,7 +53,9 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -144,6 +147,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

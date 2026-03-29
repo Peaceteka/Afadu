@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Navbar from '@/components/Navbar';
 
 const Donate = () => {
   const [amount, setAmount] = useState('');
@@ -42,7 +43,9 @@ const Donate = () => {
   const quickAmounts = [500, 1000, 2000, 5000, 10000];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -192,6 +195,7 @@ const Donate = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
