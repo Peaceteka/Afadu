@@ -15,7 +15,7 @@ export default function Home() {
 
   useEffect(() => {
     const targetValues = {
-      years: 15,
+      years: 18,
       counties: 47,
       workers: 5000
     };
@@ -48,27 +48,45 @@ export default function Home() {
   const programs = [
     {
       icon: '💊',
-      title: 'Access to Medicines',
-      description: 'Ensuring equitable access to essential medicines through improved supply chains and distribution networks.',
+      title: 'Access to Essential & Life-Saving Medicines',
+      description: 'Ensuring consistent access to safe, effective, affordable, and quality medicines through strengthened supply chains, stock management, and last-mile delivery systems.',
       delay: 0
     },
     {
       icon: '🦠',
-      title: 'AMR Stewardship',
-      description: 'Combating antimicrobial resistance through education, surveillance, and responsible antibiotic use.',
+      title: 'Antimicrobial Resistance (AMR) Stewardship',
+      description: 'Delivering high-impact system-oriented interventions to contain AMR through clinical stewardship, surveillance, community education, and policy support.',
       delay: 100
     },
     {
       icon: '👨‍⚕️',
-      title: 'Health Worker Capacity',
-      description: 'Building the skills and knowledge of healthcare professionals through training and continuous education.',
+      title: 'Health Workers Education & Capacity Building',
+      description: 'Building practical, system-integrated capacity development programs combining skills transfer, mentorship, and continuous learning for healthcare providers.',
       delay: 200
     },
     {
       icon: '🏘️',
-      title: 'Community Health',
-      description: 'Empowering communities with health education and promoting rational medicine use at the grassroots level.',
+      title: 'Public Health Education & Community Engagement',
+      description: 'Promoting health literacy through mass campaigns, AMR education, school programs, media advocacy, and behavior change communication.',
       delay: 300
+    },
+    {
+      icon: '📊',
+      title: 'Evidence Generation & Policy Support',
+      description: 'Generating and applying health systems evidence through medicine utilization surveys, operational research, and technical policy support.',
+      delay: 400
+    },
+    {
+      icon: '🤝',
+      title: 'Integrated Primary & Community Health Programs',
+      description: 'Complementing national health strategies through CHV training, outreach programs, NCD screening, and MNCAH education.',
+      delay: 500
+    },
+    {
+      icon: '🚫',
+      title: 'Interventions against Alcohol & Substance Abuse',
+      description: 'Implementing comprehensive strategies to reduce demand, availability, and harmful consequences of substance abuse through education and treatment support.',
+      delay: 600
     }
   ];
 
@@ -94,12 +112,14 @@ export default function Home() {
   ];
 
   const partners = [
-    { name: 'Ministry of Health', logo: 'MOH' },
-    { name: 'WHO Kenya', logo: 'WHO' },
-    { name: 'UNICEF', logo: 'UNICEF' },
-    { name: 'CDC Foundation', logo: 'CDC' },
-    { name: 'Bill & Melinda Gates', logo: 'BMGF' },
-    { name: 'USAID', logo: 'USAID' }
+    { name: 'ReAct Africa', website: 'https://www.reactgroup.org/africa/' },
+    { name: 'CoRSUM', website: 'http://corsum.org/' },
+    { name: 'HIFA', website: 'https://www.hifa.org/' },
+    { name: 'Ministry of Health Kenya', website: '#' },
+    { name: 'Pharmacy & Poisons Board', website: 'https://web.pharmacyboardkenya.org/' },
+    { name: 'Christian Health Association of Kenya', website: 'https://www.chak.or.ke/' },
+    { name: 'Pharmaceutical Society of Kenya', website: '#' },
+    { name: 'Kenya Pharmaceutical Association', website: '#' }
   ];
 
   return (
@@ -117,20 +137,20 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                About AFADU
+                Who We Are
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                AFADU is dedicated to promoting the rational use of medicines to improve healthcare systems across Kenya. 
-                We work tirelessly to ensure every Kenyan has access to safe, effective, and quality medicines while 
-                combating antimicrobial resistance.
+                Action for Appropriate Drug Use (AFADU) is a Kenyan non-profit, non-political, and non-racial organization established in 2008 by a team of distinguished medical doctors, pharmacists, public health specialists, and health systems experts.
+              </p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                For over 18 years, AFADU has been at the forefront of Rational Use of Medicines (RUM) in Kenya—leading interventions, shaping policy, strengthening systems, and empowering communities with vital knowledge for safe, effective, and affordable medicine use.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Through innovative programs, strategic partnerships, and community engagement, we're building a 
-                healthier future for all Kenyans through responsible medicine practices.
+                AFADU was established as a strategic response to systemic public health challenges including inappropriate medicine use, antimicrobial resistance, and structural weaknesses within health systems.
               </p>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+              <a href="/about" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
                 Learn More About Us
-              </button>
+              </a>
             </div>
             <div className="relative">
               <div className="w-full h-96 flex items-center justify-center">
@@ -140,7 +160,7 @@ export default function Home() {
                     alt="AFADU Logo" 
                     className="w-48 h-auto mx-auto mb-4"
                   />
-                  <p className="text-gray-700 font-semibold">Advocacy for Rational Use of Medicines</p>
+              <p className="text-gray-700 font-semibold">A healthy society characterized by the rational, safe, and equitable use of medicines.</p>
                 </div>
               </div>
             </div>
@@ -153,13 +173,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Program Pillars
+              Our Programmatic Interventions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Four key focus areas driving our mission to promote rational medicine use across Kenya
+              Seven strategic focus areas driving our mission to promote rational medicine use and strengthen health systems across Kenya
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {programs.map((program, index) => (
               <ProgramCard
                 key={index}
@@ -184,15 +204,15 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">{counters.years}+</div>
+              <div className="text-5xl font-bold mb-2">18+</div>
               <div className="text-xl text-blue-100">Years of Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">{counters.counties}</div>
+              <div className="text-5xl font-bold mb-2">47</div>
               <div className="text-xl text-blue-100">Counties Reached</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-bold mb-2">{counters.workers.toLocaleString()}+</div>
+              <div className="text-5xl font-bold mb-2">5,000+</div>
               <div className="text-xl text-blue-100">Health Workers Trained</div>
             </div>
           </div>
@@ -210,14 +230,24 @@ export default function Home() {
               Collaborating with leading organizations to advance healthcare in Kenya
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {partners.map((partner, index) => (
               <div key={index} className="bg-white rounded-lg p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <span className="text-xs font-bold text-gray-600">{partner.logo}</span>
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <img 
+                      src="/images/afudu1.webp" 
+                      alt={partner.name} 
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <span className="text-xs font-bold text-blue-600 hidden">AF</span>
                   </div>
-                  <span className="text-xs text-gray-600">{partner.name}</span>
+                  <span className="text-xs text-gray-600 font-medium">{partner.name}</span>
                 </div>
               </div>
             ))}
@@ -273,12 +303,12 @@ export default function Home() {
             together we can make a lasting impact on healthcare in Kenya.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200">
-              Become a Partner
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-200">
-              Learn More
-            </button>
+            <a href="/partnerships" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200">
+              Partner With Us
+            </a>
+            <a href="/programs" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-200">
+              Our Programs
+            </a>
           </div>
         </div>
       </section>
