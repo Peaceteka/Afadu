@@ -69,7 +69,8 @@ const Contact = () => {
       icon: '📍',
       title: 'Visit Our Office',
       details: [
-        'AFADU Headquarters',
+        'AFADU – Action for Appropriate Drug Use',
+        'P.O. Box 10390 - 0100',
         'Nairobi, Kenya',
         'Monday - Friday: 8:00 AM - 5:00 PM'
       ]
@@ -78,18 +79,43 @@ const Contact = () => {
       icon: '📞',
       title: 'Call Us',
       details: [
-        '+254 700 000 000',
-        '+254 722 000 000 (Hotline)',
-        'Available 24/7 for emergencies'
+        '0142273783',
+        'WhatsApp: +254 710 620294',
+        'Available Monday - Friday: 8:00 AM - 5:00 PM'
+      ]
+    },
+    {
+      icon: '💬',
+      title: 'WhatsApp Us',
+      details: [
+        <a 
+          href="https://wa.me/254710620294" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-700 underline font-medium"
+        >
+          Click to chat on WhatsApp
+        </a>,
+        'Opens WhatsApp chat directly'
       ]
     },
     {
       icon: '✉️',
       title: 'Email Us',
       details: [
-        'info@afadu.org',
-        'partnerships@afadu.org',
-        'support@afadu.org'
+        'afadungo@gmail.com',
+        'For partnerships: afadungo@gmail.com',
+        'For general inquiries: afadungo@gmail.com'
+      ]
+    },
+    {
+      icon: '🌐',
+      title: 'Follow Us',
+      details: [
+        'Twitter/X: @afadungo',
+        'Facebook: https://www.facebook.com/share/1QeKHGWUft/',
+        'LinkedIn: Afadungo@gmail.com',
+        'Website: www.afadu.org'
       ]
     }
   ];

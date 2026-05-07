@@ -15,7 +15,7 @@ const Navbar = () => {
               <img 
                 src="/images/Afadulogo.png" 
                 alt="AFADU Logo" 
-                className="h-16 w-auto"
+                className="h-20 w-auto"
               />
             </div>
           </div>
