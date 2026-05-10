@@ -6,13 +6,13 @@ import Footer from '@/components/Footer';
 
 const Leadership = () => {
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
-  const [activeView, setActiveView] = useState<'grid' | 'list'>('grid');
+  const [activeView, setActiveView] = useState<'grid' | 'list'>('list');
 
   const boardMembers = [
     {
       id: 'willis-ayieko',
       name: 'Professor Willis Ayieko',
-      title: 'Chairman of the Board',
+      title: 'Chairperson of the Board',
       image: '/images/Prof Willis.png',
       expertise: 'Epidemiology, Biostatistics, Global Health Research',
       experience: '20+ years',
@@ -72,96 +72,11 @@ const Leadership = () => {
       ],
       quote: 'Innovation in health technology is critical for advancing healthcare delivery.'
     },
-    {
-      id: 'margaret-nyambura',
-      name: 'Margaret Nyambura',
-      title: 'Board Member',
-      image: '/images/Margaret Nyambura.jpg',
-      expertise: 'Public Health, Program Management, Community Health',
-      experience: '12+ years',
-      currentRole: 'Public Health Specialist, AFADU',
-      background: 'Public health and program management expert with extensive experience in community health interventions, disease surveillance, and health program coordination.',
-      achievements: [
-        'Community health program coordination',
-        'Disease surveillance and response',
-        'Public health policy development'
-      ],
-      education: [
-        'MPH in Public Health - University of Nairobi',
-        'BSc in Nursing - University of Nairobi',
-        'Public Health certifications'
-      ],
-      quote: 'Community engagement is essential for sustainable public health improvements.'
-    },
-    {
-      id: 'joseph-muriuki',
-      name: 'Joseph Muriuki',
-      title: 'Board Member',
-      image: '/images/Joseph Muriuki.jpg',
-      expertise: 'Health Economics, Policy Analysis, Strategic Planning',
-      experience: '16+ years',
-      currentRole: 'Health Economist, AFADU',
-      background: 'Health economics and policy analysis expert with extensive experience in economic evaluation, health policy development, and strategic planning.',
-      achievements: [
-        'Health economic evaluations',
-        'Policy analysis and development',
-        'Strategic health planning'
-      ],
-      education: [
-        'MA in Health Economics - University of York',
-        'BSc in Economics - University of Nairobi',
-        'Health Policy certifications'
-      ],
-      quote: 'Economic evidence is fundamental for sustainable health system strengthening.'
-    },
-    {
-      id: 'samuel-kamau',
-      name: 'Samuel Kamau',
-      title: 'Board Member',
-      image: '/images/Samuel Kamau.jpg',
-      expertise: 'Information Management, Digital Health, Data Analytics',
-      experience: '14+ years',
-      currentRole: 'Information Systems Manager, AFADU',
-      background: 'Information management and digital health expert with extensive experience in health information systems, data analytics, and digital transformation.',
-      achievements: [
-        'Health information system implementations',
-        'Data analytics and management',
-        'Digital transformation projects'
-      ],
-      education: [
-        'MSc in Information Systems - University of Nairobi',
-        'BSc in Computer Science - Kenyatta University',
-        'Digital Health certifications'
-      ],
-      quote: 'Data-driven decisions are essential for effective health system management.'
-    },
-    {
-      id: 'grace-wanjiru',
-      name: 'Grace Wanjiru',
-      title: 'Board Member',
-      image: '/images/Grace Wanjiru.jpg',
-      expertise: 'Pharmaceuticals, Supply Chain Management, Public Health',
-      experience: '20+ years',
-      currentRole: 'Pharmaceutical Advisor, AFADU',
-      background: 'Pharmaceutical and supply chain management expert with extensive experience in pharmaceutical supply chains, public health programs, and health system strengthening.',
-      achievements: [
-        'Supply chain optimization projects',
-        'Public health program coordination',
-        'Pharmaceutical system strengthening'
-      ],
-      education: [
-        'MSc in Pharmaceutical Sciences - University of Nairobi',
-        'BSc in Pharmacy - University of Nairobi',
-        'Supply Chain Management training',
-        'Global Health Programs development'
-      ],
-      quote: 'Efficient supply chains are backbone of accessible and quality healthcare delivery.'
-    },
-    {
+        {
       id: 'andrew-oluga',
       name: 'Andrew Oluga',
       title: 'Secretary & Executive Director',
-      image: '/images/andrew-oluga.jpg',
+      image: '/images/Andrew Oluga.png',
       expertise: 'Pharmaceuticals, Health Systems, Project Management',
       experience: '22+ years',
       currentRole: 'Executive Director, AFADU',
@@ -184,7 +99,7 @@ const Leadership = () => {
       id: 'david-dianga',
       name: 'David Dianga',
       title: 'Board Member',
-      image: '/images/david-dianga.jpg',
+      image: '/images/David Dianga.png',
       expertise: 'Pharmaceutical Supply Chain, Health Systems',
       experience: '22+ years',
       currentRole: 'Supply Chain Specialist, AFADU',
@@ -209,8 +124,17 @@ const Leadership = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-800 via-slate-700 to-gray-800 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-30"></div>
+      <section className="relative text-white overflow-hidden">
+        {/* Logo Background */}
+        <div className="absolute inset-0">
+          <img 
+            src="/images/logo1.png" 
+            alt="AFADU Logo Background" 
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+        </div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
             <div className="mb-8">
@@ -218,10 +142,10 @@ const Leadership = () => {
                 <span className="text-5xl">👥</span>
               </div>
             </div>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-black">
               Leadership &amp; Governance
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl lg:text-2xl text-black max-w-4xl mx-auto leading-relaxed mb-8">
               Meet the distinguished board of experts guiding AFADU&apos;s mission to transform 
               healthcare through rational medicine use and strategic leadership
             </p>
@@ -230,8 +154,8 @@ const Leadership = () => {
                 onClick={() => setActiveView('grid')}
                 className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                   activeView === 'grid' 
-                    ? 'bg-white text-gray-800 shadow-xl' 
-                    : 'bg-white bg-opacity-5 text-white hover:bg-opacity-10 backdrop-blur-sm border border-white border-opacity-10'
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-xl' 
+                    : 'bg-white bg-opacity-80 text-green-600 hover:bg-opacity-90 backdrop-blur-sm border-2 border-green-400'
                 }`}
               >
                 Grid View
@@ -240,8 +164,8 @@ const Leadership = () => {
                 onClick={() => setActiveView('list')}
                 className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                   activeView === 'list' 
-                    ? 'bg-white text-gray-800 shadow-xl' 
-                    : 'bg-white bg-opacity-5 text-white hover:bg-opacity-10 backdrop-blur-sm border border-white border-opacity-10'
+                    ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-xl' 
+                    : 'bg-white bg-opacity-80 text-blue-600 hover:bg-opacity-90 backdrop-blur-sm border-2 border-blue-400'
                 }`}
               >
                 List View
@@ -280,36 +204,29 @@ const Leadership = () => {
               {boardMembers.map((member, index) => (
                 <div
                   key={member.id}
-                  className="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
+                  className="group relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1 overflow-hidden cursor-pointer border border-gray-100"
                   onClick={() => setSelectedMember(selectedMember === member.id ? null : member.id)}
                 >
-                  {/* Image Section */}
-                  <div className="relative h-80 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-30"></div>
-                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                  {/* Content Section */}
+                  <div className="p-8 text-center">
+                    {/* Circular Image */}
+                    <div className="flex justify-center mb-6">
                       {member.image && member.image.includes('.jpg') || member.image.includes('.png') ? (
                         <img 
                           src={member.image} 
                           alt={member.name} 
-                          className="w-full h-full object-cover object-top rounded-xl shadow-lg"
+                          className="w-24 h-24 object-cover object-center rounded-full shadow-lg border-4 border-white"
                         />
                       ) : (
-                        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-gray-200">
-                          <span className="text-4xl font-bold text-gray-700">
+                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-gray-200">
+                          <span className="text-2xl font-bold text-gray-700">
                             {member.name.split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                       )}
                     </div>
-                    <div className="absolute top-4 right-4">
-                      <span className="bg-white bg-opacity-90 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold backdrop-blur-sm">
-                        {member.title.split(' ')[0]}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="p-8">
+                    
+                                        
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
                     <p className="text-slate-600 font-semibold mb-4">{member.title}</p>
                     <div className="space-y-3 mb-6">
@@ -340,46 +257,43 @@ const Leadership = () => {
               ))}
             </div>
           ) : (
-            <div className="space-y-6">
+            <div className="space-y-8">
               {boardMembers.map((member, index) => (
                 <div
                   key={member.id}
-                  className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden cursor-pointer"
+                  className={`bg-white/90 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1 overflow-hidden cursor-pointer border ${
+                    index % 3 === 0 ? 'border-l-4 border-blue-200' : 
+                    index % 3 === 1 ? 'border-l-4 border-green-200' : 
+                    index % 3 === 2 ? 'border-l-4 border-slate-200' : 
+                    'border-gray-100'
+                  }`}
                   onClick={() => setSelectedMember(selectedMember === member.id ? null : member.id)}
                 >
-                  <div className="flex flex-col lg:flex-row">
-                    {/* Image Section */}
-                    <div className="lg:w-1/3 relative h-64 lg:h-auto">
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 opacity-30"></div>
-                      <div className="absolute inset-0 flex items-center justify-center p-6">
+                  <div className="flex flex-col lg:flex-row items-center">
+                    {/* Content Section */}
+                    <div className="p-8 text-center lg:text-left">
+                      {/* Circular Image */}
+                      <div className="flex justify-center lg:justify-center mb-6">
                         {member.image && member.image.includes('.jpg') || member.image.includes('.png') ? (
                           <img 
                             src={member.image} 
                             alt={member.name} 
-                            className="w-full h-full object-cover object-top rounded-xl shadow-lg"
+                            className="w-32 h-32 object-cover object-center rounded-full shadow-lg border-4 border-white"
                           />
                         ) : (
                           <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-gray-200">
-                            <span className="text-4xl font-bold text-gray-700">
+                            <span className="text-xl font-bold text-gray-700">
                               {member.name.split(' ').map(n => n[0]).join('')}
                             </span>
                           </div>
                         )}
                       </div>
-                    </div>
-                    
-                    {/* Content Section */}
-                    <div className="lg:w-2/3 p-8">
+                      
                       <div className="flex-1">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h3 className="text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                            <p className="text-slate-600 font-semibold text-lg mb-2">{member.title}</p>
-                            <p className="text-gray-600 text-sm mb-4">{member.currentRole}</p>
-                          </div>
-                          <span className="bg-slate-100 text-slate-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            {member.title.split(' ')[0]}
-                          </span>
+                        <div className="mb-4">
+                          <h3 className="text-3xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                          <p className="text-slate-600 font-semibold text-lg mb-2">{member.title}</p>
+                          <p className="text-gray-600 text-sm mb-4">{member.currentRole}</p>
                         </div>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

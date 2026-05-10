@@ -81,13 +81,13 @@ const Navbar = () => {
                 {/* Donate Button */}
                 <a 
                   href="/donate" 
-                  className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-bold rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-green-400"
                 >
                   DONATE
                 </a>
                 
                 {/* Contact Button */}
-                <a href="/contact" className="group relative px-6 py-3 text-sm font-bold bg-gradient-to-r from-slate-600 to-gray-600 text-white rounded-lg hover:from-slate-700 hover:to-gray-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <a href="/contact" className="group relative px-6 py-3 text-sm font-bold bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg border-2 border-blue-400">
                   <span className="relative z-10">CONTACT</span>
                 </a>
               </div>
@@ -121,7 +121,7 @@ const Navbar = () => {
           <a href="/programs" className="block px-4 py-3 text-base font-bold text-gray-900 hover:bg-slate-50 hover:text-slate-700 rounded-lg transition-colors duration-200">PROGRAMS</a>
           <a href="/impact" className="block px-4 py-3 text-base font-bold text-gray-900 hover:bg-slate-50 hover:text-slate-700 rounded-lg transition-colors duration-200">IMPACT</a>
           <a href="/partnerships" className="block px-4 py-3 text-base font-bold text-gray-900 hover:bg-slate-50 hover:text-slate-700 rounded-lg transition-colors duration-200">PARTNERSHIPS</a>
-          <a href="/contact" className="block px-4 py-3 text-base font-bold bg-gradient-to-r from-slate-600 to-gray-600 text-white rounded-lg hover:from-slate-700 hover:to-gray-700 transition-colors duration-200">CONTACT</a>
+          <a href="/contact" className="block px-4 py-3 text-base font-bold bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-colors duration-200">CONTACT</a>
         </div>
       </div>
     </nav>

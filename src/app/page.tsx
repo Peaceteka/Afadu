@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
-import HeroSlider from '@/components/HeroSlider';
+import Hero from '@/components/Hero';
 import ProgramCard from '@/components/ProgramCard';
 import Footer from '@/components/Footer';
 
@@ -128,27 +128,46 @@ export default function Home() {
       
       {/* Hero Section */}
       <section id="home">
-        <HeroSlider />
+        <Hero />
       </section>
 
       {/* About Snapshot Section */}
-      <section id="about" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about" className="py-20 relative">
+        {/* Vibrant AFADU Brand Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
+          {/* Animated brand color overlay */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/30 via-green-500/20 to-blue-600/30 animate-pulse"></div>
+          </div>
+          
+          {/* Vibrant decorative elements */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-green-400 to-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-gradient-to-br from-green-300 to-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
+          <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-gradient-to-br from-blue-300 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-6000"></div>
+          
+          {/* Dynamic brand color borders */}
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 via-blue-600 to-green-500 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-green-500 to-blue-600 animate-pulse animation-delay-1000"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Who We Are
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Action for Appropriate Drug Use (AFADU) is a Kenyan non-profit, non-political, and non-racial organization established in 2008 by a team of distinguished medical doctors, pharmacists, public health specialists, and health systems experts.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 For over 18 years, AFADU has been at the forefront of Rational Use of Medicines (RUM) in Kenya—leading interventions, shaping policy, strengthening systems, and empowering communities with vital knowledge for safe, effective, and affordable medicine use.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 AFADU was established as a strategic response to systemic public health challenges including inappropriate medicine use, antimicrobial resistance, and structural weaknesses within health systems.
               </p>
-              <a href="/about" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+              <a href="/about" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-blue-400">
                 Learn More About Us
               </a>
             </div>
@@ -158,9 +177,9 @@ export default function Home() {
                   <img 
                     src="/images/Afadulogo.png" 
                     alt="AFADU Logo" 
-                    className="w-48 h-auto mx-auto mb-4"
+                    className="w-48 h-auto mx-auto mb-4 drop-shadow-lg"
                   />
-              <p className="text-gray-700 font-semibold">A healthy society characterized by the rational, safe, and equitable use of medicines.</p>
+                  <p className="text-gray-700 font-semibold drop-shadow-md">A healthy society characterized by the rational, safe, and equitable use of medicines.</p>
                 </div>
               </div>
             </div>
@@ -169,13 +188,20 @@ export default function Home() {
       </section>
 
       {/* Program Pillars Section */}
-      <section id="programs" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="programs" className="py-20 relative">
+        {/* AFADU theme gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
+          <div className="absolute inset-0 opacity-8">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/15 via-green-500/10 to-blue-600/15"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Programmatic Interventions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Seven strategic focus areas driving our mission to promote rational medicine use and strengthen health systems across Kenya
             </p>
           </div>
@@ -194,8 +220,22 @@ export default function Home() {
       </section>
 
       {/* Impact Metrics Section */}
-      <section id="impact" className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="impact" className="py-20 relative text-white">
+        {/* Logo Background and Watermark */}
+        <div className="absolute inset-0">
+          <img 
+            src="/images/logo1.png" 
+            alt="AFADU Logo Background" 
+            className="w-full h-full object-cover opacity-8"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-green-500/10 to-blue-600/20"></div>
+        </div>
+        
+        {/* Very subtle decorative elements */}
+        <div className="absolute top-10 left-10 w-16 h-16 bg-green-500/20 rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-12 h-12 bg-blue-600/20 rounded-full"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Impact</h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -220,21 +260,31 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section id="partnerships" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="partnerships" className="py-20 relative">
+        {/* Logo Background and Watermark */}
+        <div className="absolute inset-0">
+          <img 
+            src="/images/logo1.png" 
+            alt="AFADU Logo Background" 
+            className="w-full h-full object-cover opacity-8"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-green-500/15 to-blue-600/20"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Partners
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Collaborating with leading organizations to advance healthcare in Kenya
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center h-24 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 border border-blue-100">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
                     <img 
                       src="/images/afudu1.webp" 
                       alt={partner.name} 
@@ -256,21 +306,28 @@ export default function Home() {
       </section>
 
       {/* Insights/News Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative">
+        {/* AFADU theme gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
+          <div className="absolute inset-0 opacity-8">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-green-500/15 via-blue-500/10 to-green-600/15"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Latest Insights
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Stay updated with our latest news, research, and program updates
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 border border-green-100">
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-gradient-to-r from-green-100 to-green-200 rounded-full">
                     {insight.category}
                   </span>
                 </div>
@@ -282,7 +339,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">{insight.date}</span>
-                  <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200">
+                  <button className="text-green-600 font-semibold hover:text-green-700 transition-colors duration-300">
                     Read More →
                   </button>
                 </div>
@@ -303,10 +360,10 @@ export default function Home() {
             together we can make a lasting impact on healthcare in Kenya.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/partnerships" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200">
+            <a href="/partnerships" className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 border-2 border-green-400">
               Partner With Us
             </a>
-            <a href="/programs" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-200">
+            <a href="/programs" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 border-2 border-blue-400">
               Our Programs
             </a>
           </div>
