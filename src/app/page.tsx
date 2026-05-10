@@ -221,15 +221,9 @@ export default function Home() {
 
       {/* Impact Metrics Section */}
       <section id="impact" className="py-20 relative text-white">
-        {/* Logo Background and Watermark */}
-        <div className="absolute inset-0">
-          <img 
-            src="/images/logo1.png" 
-            alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-8"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-green-500/10 to-blue-600/20"></div>
-        </div>
+        {/* Very subtle fade gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/40 via-green-500/30 to-blue-600/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-green-500/5 to-blue-600/10"></div>
         
         {/* Very subtle decorative elements */}
         <div className="absolute top-10 left-10 w-16 h-16 bg-green-500/20 rounded-full"></div>
@@ -261,14 +255,11 @@ export default function Home() {
 
       {/* Partners Section */}
       <section id="partnerships" className="py-20 relative">
-        {/* Logo Background and Watermark */}
-        <div className="absolute inset-0">
-          <img 
-            src="/images/logo1.png" 
-            alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-8"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-green-500/15 to-blue-600/20"></div>
+        {/* AFADU theme gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/20 via-green-500/15 to-blue-600/20"></div>
+          </div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

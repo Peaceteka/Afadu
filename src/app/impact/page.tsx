@@ -120,8 +120,17 @@ const Impact = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-700 via-slate-600 to-gray-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <section className="relative text-white overflow-hidden">
+        {/* Logo Background */}
+        <div className="absolute inset-0">
+          <img 
+            src="/images/logo1.png" 
+            alt="AFADU Logo Background" 
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+        </div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
             <div className="mb-6">
@@ -129,10 +138,10 @@ const Impact = () => {
                 <span className="text-4xl">📈</span>
               </div>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
               Our Impact
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-black max-w-4xl mx-auto leading-relaxed">
               Transforming healthcare across Kenya through measurable results, 
               sustainable programs, and lasting community impact
             </p>
