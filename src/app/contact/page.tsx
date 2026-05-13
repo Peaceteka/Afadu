@@ -92,8 +92,8 @@ const Contact = () => {
       icon: '📍',
       title: 'Visit Our Office',
       details: [
-        'AFADU – Action for Appropriate Drug Use',
-        'P.O. Box 10390 - 0100',
+        'ACTION FOR APPROPRIATE DRUG USE (AFADU)',
+        'P.O. Box 10390 – 0100',
         'Nairobi, Kenya',
         'Monday - Friday: 8:00 AM - 5:00 PM'
       ]
@@ -102,7 +102,7 @@ const Contact = () => {
       icon: '📞',
       title: 'Call Us',
       details: [
-        '0142273783',
+        'Phone: Available on request',
         'WhatsApp: +254 710 620294',
         'Available Monday - Friday: 8:00 AM - 5:00 PM'
       ]
@@ -126,19 +126,19 @@ const Contact = () => {
       icon: '✉️',
       title: 'Email Us',
       details: [
-        'afadungo@gmail.com',
-        'For partnerships: afadungo@gmail.com',
-        'For general inquiries: afadungo@gmail.com'
+        'afadu.org@gmail.com',
+        'For partnerships: afadu.org@gmail.com',
+        'For general inquiries: afadu.org@gmail.com'
       ]
     },
     {
       icon: '🌐',
       title: 'Follow Us',
       details: [
-        'Twitter/X: @afadungo',
-        'Facebook: https://www.facebook.com/share/1QeKHGWUft/',
-        'LinkedIn: Afadungo@gmail.com',
-        'Website: www.afadu.org'
+        'Website: AFADU Website',
+        'Email: afadu.org@gmail.com',
+        'Location: Nairobi, Kenya',
+        'Geographic Scope: All 47 Counties of Kenya'
       ]
     }
   ];

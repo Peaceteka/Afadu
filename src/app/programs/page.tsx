@@ -12,69 +12,135 @@ const Programs = () => {
     { id: 'access', label: 'Medicines Access' },
     { id: 'amr', label: 'AMR Stewardship' },
     { id: 'training', label: 'Health Training' },
-    { id: 'community', label: 'Community Health' }
+    { id: 'community', label: 'Community Health' },
+    { id: 'policy', label: 'Policy & Evidence' },
+    { id: 'prevention', label: 'Prevention Programs' }
   ];
 
   const allPrograms = [
     {
       id: 1,
-      title: 'Essential Medicines Program',
-      description: 'Improving access to quality essential medicines in rural and underserved communities across Kenya.',
+      title: 'Access to Essential & Life-Saving Medicines',
+      description: 'AFADU strengthens medicine supply systems to ensure uninterrupted access to safe, affordable, quality-assured medicines.',
       icon: '💊',
       category: 'access',
-      features: ['Medicine Distribution', 'Quality Assurance', 'Supply Chain Management'],
+      features: [
+        'Medicine supply chain strengthening',
+        'Forecasting & quantification support',
+        'Procurement systems strengthening',
+        'Last-mile distribution systems',
+        'Commodity management training',
+        'Emergency medical supplies support',
+        'Advocacy for equitable access to medicines'
+      ],
       impact: 'Reached 200+ health facilities',
       status: 'Active'
     },
     {
       id: 2,
-      title: 'Antimicrobial Resistance Initiative',
-      description: 'Combating AMR through surveillance, education, and stewardship programs nationwide.',
+      title: 'Antimicrobial Resistance (AMR) Stewardship',
+      description: 'AFADU implements high-impact AMR containment interventions aligned with Kenya\'s National Action Plan and global One Health priorities.',
       icon: '🦠',
       category: 'amr',
-      features: ['Laboratory Testing', 'Surveillance Systems', 'Healthcare Worker Training'],
+      features: [
+        'Establishment of AMS Committees',
+        'Rational antibiotic use training',
+        'Antibiotic surveillance systems',
+        'Clinical mentorship & audits',
+        'Community AMR awareness campaigns',
+        'Development of AMS guidelines and SOPs',
+        'Collaboration with national AMR TWGs'
+      ],
       impact: 'Trained 1,000+ professionals',
       status: 'Active'
     },
     {
       id: 3,
-      title: 'Health Worker Capacity Building',
-      description: 'Enhancing skills and knowledge of healthcare professionals in rational medicine use.',
+      title: 'Health Workforce Capacity Building',
+      description: 'AFADU delivers integrated capacity strengthening programs for healthcare workers across Kenya.',
       icon: '👥',
       category: 'training',
-      features: ['Training Workshops', 'Mentorship Programs', 'Certification Courses'],
+      features: [
+        'Rational Use of Medicines (RUM)',
+        'Pharmaceutical care & pharmacovigilance',
+        'Infection Prevention & Control (IPC)',
+        'HIV, TB, Malaria & NCD management',
+        'Continuous Medical Education (CME)',
+        'Supportive supervision & mentorship',
+        'Digital health & medicine tracking systems'
+      ],
       impact: '5,000+ workers trained',
       status: 'Active'
     },
     {
       id: 4,
-      title: 'Community Health Education',
-      description: 'Empowering communities with knowledge for better health outcomes and medicine practices.',
+      title: 'Public Health Education & Community Engagement',
+      description: 'AFADU promotes health literacy and positive health-seeking behaviors through targeted public engagement interventions.',
       icon: '🏘',
       category: 'community',
-      features: ['School Programs', 'Community Outreach', 'Public Awareness Campaigns'],
+      features: [
+        'Safe medicine use campaigns',
+        'Community AMR education',
+        'School health programmes',
+        'Media advocacy (TV, radio, digital)',
+        'Social & Behaviour Change Communication (SBCC)',
+        'Community dialogue forums',
+        'Youth engagement programmes'
+      ],
       impact: 'Reached 500,000+ people',
       status: 'Active'
     },
     {
       id: 5,
-      title: 'Maternal and Child Health',
-      description: 'Ensuring safe and effective medicine use for mothers and children across Kenya.',
-      icon: '🤱',
-      category: 'access',
-      features: ['Prenatal Care', 'Pediatric Services', 'Nutrition Support'],
-      impact: 'Served 50,000+ mothers',
+      title: 'Evidence Generation & Policy Support',
+      description: 'AFADU supports evidence-informed policy and health systems strengthening.',
+      icon: '📊',
+      category: 'policy',
+      features: [
+        'Medicine utilization surveys',
+        'Operational & implementation research',
+        'Health policy analysis',
+        'Development of guidelines & SOPs',
+        'Technical support to Ministry of Health',
+        'Pharmaceutical regulation support',
+        'Monitoring & evaluation systems'
+      ],
+      impact: 'Influenced national health policies',
       status: 'Active'
     },
     {
       id: 6,
-      title: 'Digital Health Solutions',
-      description: 'Leveraging technology to improve medicine tracking and patient outcomes.',
-      icon: '💻',
-      category: 'access',
-      features: ['Mobile Apps', 'SMS Reminders', 'Data Analytics'],
-      impact: '100,000+ app downloads',
-      status: 'Pilot'
+      title: 'Integrated Primary & Community Health Programs',
+      description: 'AFADU complements national and county health priorities through integrated community-based programming.',
+      icon: '🏥',
+      category: 'community',
+      features: [
+        'Community Health Promoter (CHP) strengthening',
+        'Integrated outreach services',
+        'HIV testing & counseling',
+        'NCD screening',
+        'MNCAH education',
+        'School health and medicine safety programmes'
+      ],
+      impact: 'Served 47 counties',
+      status: 'Active'
+    },
+    {
+      id: 7,
+      title: 'Alcohol & Substance Abuse Prevention',
+      description: 'AFADU implements prevention and response programmes addressing substance use disorders and harmful alcohol use.',
+      icon: '�',
+      category: 'prevention',
+      features: [
+        'Community sensitization',
+        'Prevention education',
+        'Youth outreach programmes',
+        'Advocacy and policy support',
+        'Referral and rehabilitation support',
+        'Community-based psychosocial support'
+      ],
+      impact: 'Reached 100,000+ youth',
+      status: 'Active'
     }
   ];
 
@@ -97,36 +163,112 @@ const Programs = () => {
           </p>
         </div>
 
-        {/* Program Areas Strategic Overview */}
+        {/* Programmatic Pillars Overview */}
         <div className="bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 rounded-2xl p-8 mb-12 border border-blue-200">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Program Areas</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Programmatic Pillars</h2>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+                AFADU's work is organized around seven strategic programmatic pillars
+              </p>
             </div>
             
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                The strategic programs respond to current needs of members and are in alignment with 
-                <span className="font-bold text-blue-600"> Sustainable Development Goal 3 (SDG3) </span> 
-                that calls for universal health coverage by 2030.
-              </p>
-              
-              <p className="text-lg text-gray-700 leading-relaxed">
-                AFADU utilizes its long-time experience of implementation of interventions in the 
-                low and middle income regions. The current AFADU strategic program focuses on the following health priorities:
-              </p>
-              
-              {/* SDG3 Alignment Badge */}
-              <div className="flex justify-center mt-6">
-                <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-full px-6 py-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">3</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">💊</span>
                   </div>
-                  <span className="text-blue-800 font-semibold">Aligned with SDG3: Universal Health Coverage</span>
+                  <h3 className="text-lg font-bold text-gray-900">Access to Essential Medicines</h3>
                 </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Supply chains, forecasting, procurement, last-mile delivery
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">🦠</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Antimicrobial Resistance (AMR)</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Stewardship, AMS programs, surveillance, stewardship systems
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">👥</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Health Workforce Capacity</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Clinical mentorship, pharmaceutical care, CME
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">🏘</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Public Health & Community</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Health literacy, SBCC, media advocacy
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">📊</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Evidence & Policy Support</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Operational research, policy analysis, guideline development
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">🏥</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Integrated Community Health</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  CHV support, MNCAH, NCD screening
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-xl">🚭</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900">Alcohol & Substance Prevention</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Prevention, awareness, rehabilitation support
+                </p>
+              </div>
+            </div>
+            
+            {/* SDG3 Alignment Badge */}
+            <div className="flex justify-center mt-8">
+              <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-full px-6 py-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-3">
+                  <span className="text-white font-bold text-sm">3</span>
+                </div>
+                <span className="text-blue-800 font-semibold">Aligned with SDG3: Universal Health Coverage</span>
               </div>
             </div>
           </div>

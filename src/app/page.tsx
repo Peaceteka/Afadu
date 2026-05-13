@@ -159,13 +159,13 @@ export default function Home() {
                 Who We Are
               </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Action for Appropriate Drug Use (AFADU) is a Kenyan non-profit, non-political, and non-racial organization established in 2008 by a team of distinguished medical doctors, pharmacists, public health specialists, and health systems experts.
+                Action for Appropriate Drug Use (AFADU) is a nationally recognized Kenyan non-governmental organization established in 2008 by a multidisciplinary team of distinguished medical doctors, pharmacists, public health specialists, epidemiologists, and health systems experts committed to advancing the rational and safe use of medicines.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                For over 18 years, AFADU has been at the forefront of Rational Use of Medicines (RUM) in Kenya—leading interventions, shaping policy, strengthening systems, and empowering communities with vital knowledge for safe, effective, and affordable medicine use.
+                For more than eighteen years, AFADU has remained at the forefront of pharmaceutical systems strengthening and Rational Use of Medicines (RUM) in Kenya. The organization has consistently championed evidence-based interventions aimed at improving medicine access, promoting patient safety, strengthening antimicrobial stewardship, influencing policy reforms, enhancing pharmaceutical governance, and empowering communities with accurate health information.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                AFADU was established as a strategic response to systemic public health challenges including inappropriate medicine use, antimicrobial resistance, and structural weaknesses within health systems.
+                AFADU was founded in response to growing systemic public health challenges that were increasingly undermining healthcare quality, patient safety, and health system sustainability in Kenya.
               </p>
               <a href="/about" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-2 border-blue-400">
                 Learn More About Us
