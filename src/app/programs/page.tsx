@@ -98,10 +98,10 @@ const Programs = () => {
         </div>
 
         {/* Program Areas Strategic Overview */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 mb-12 border border-slate-200">
+        <div className="bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 rounded-2xl p-8 mb-12 border border-blue-200">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Program Areas</h2>
@@ -110,7 +110,7 @@ const Programs = () => {
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
                 The strategic programs respond to current needs of members and are in alignment with 
-                <span className="font-bold text-slate-600"> Sustainable Development Goal 3 (SDG3) </span> 
+                <span className="font-bold text-blue-600"> Sustainable Development Goal 3 (SDG3) </span> 
                 that calls for universal health coverage by 2030.
               </p>
               
@@ -121,11 +121,11 @@ const Programs = () => {
               
               {/* SDG3 Alignment Badge */}
               <div className="flex justify-center mt-6">
-                <div className="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full px-6 py-3">
-                  <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-full px-6 py-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-sm">3</span>
                   </div>
-                  <span className="text-green-800 font-semibold">Aligned with SDG3: Universal Health Coverage</span>
+                  <span className="text-blue-800 font-semibold">Aligned with SDG3: Universal Health Coverage</span>
                 </div>
               </div>
             </div>
@@ -134,15 +134,15 @@ const Programs = () => {
 
         {/* Category Filter */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex rounded-lg bg-gray-100 p-1">
+          <div className="inline-flex rounded-lg bg-gradient-to-r from-blue-50 to-green-50 p-1 border border-blue-200">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
+                className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
                   activeCategory === category.id
-                    ? 'bg-white text-slate-600 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white text-blue-600 shadow-md border border-blue-300'
+                    : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
                 }`}
               >
                 {category.label}
@@ -156,7 +156,7 @@ const Programs = () => {
           {filteredPrograms.map((program, index) => (
             <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Program Header */}
-              <div className="bg-gradient-to-r from-slate-600 to-gray-600 p-6">
+              <div className="bg-gradient-to-r from-blue-600 to-green-600 p-6">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
@@ -189,7 +189,7 @@ const Programs = () => {
                     {program.features.map((feature, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm"
+                        className="px-3 py-1 bg-gradient-to-r from-blue-100 to-green-100 text-blue-700 rounded-full text-sm border border-blue-200"
                       >
                         {feature}
                       </span>
@@ -200,37 +200,32 @@ const Programs = () => {
                 {/* Impact */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-2">Impact:</h4>
-                  <p className="text-green-600 font-medium">{program.impact}</p>
+                  <p className="text-blue-600 font-medium">{program.impact}</p>
                 </div>
-
-                {/* Learn More Button */}
-                <button className="w-full bg-gradient-to-r from-slate-600 to-gray-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-slate-700 hover:to-gray-700 transition-all duration-300 transform hover:scale-105">
-                  Learn More About This Program
-                </button>
               </div>
             </div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-r from-slate-600 to-gray-600 text-white rounded-xl p-8 text-center">
+        <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Get Involved in Our Programs
           </h2>
-          <p className="text-xl mb-6 max-w-3xl mx-auto text-gray-100">
+          <p className="text-xl mb-6 max-w-3xl mx-auto text-blue-100">
             Whether you're a healthcare professional, community leader, or concerned citizen, 
             there are many ways to contribute to our mission of promoting rational medicine use in Kenya.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="/contact" 
-              className="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg"
             >
               Join Our Programs
             </a>
             <a 
               href="/donate" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-800 transition-colors duration-200"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-200"
             >
               Support Our Work
             </a>

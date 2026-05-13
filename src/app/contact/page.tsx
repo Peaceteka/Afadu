@@ -14,6 +14,18 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState({
+    show: false,
+    message: '',
+    type: 'success' // 'success' or 'error'
+  });
+
+  const showNotification = (message: string, type: 'success' | 'error' = 'success') => {
+    setNotification({ show: true, message, type });
+    setTimeout(() => {
+      setNotification({ show: false, message: '', type: 'success' });
+    }, 5000);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -41,13 +53,22 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission - replace with actual backend integration
-      console.log('Contact form submission:', formData);
+      // Format message for WhatsApp
+      const message = `*New Contact Form Submission*\n\n` +
+        `*Name:* ${formData.name}\n` +
+        `*Email:* ${formData.email}\n` +
+        `*Phone:* ${formData.phone}\n` +
+        `*Inquiry Type:* ${formData.inquiryType}\n` +
+        `*Subject:* ${formData.subject}\n\n` +
+        `*Message:*\n${formData.message}`;
+
+      // Send via WhatsApp to AFADU phone number
+      const whatsappUrl = `https://wa.me/254710620294?text=${encodeURIComponent(message)}`;
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Open WhatsApp with pre-filled message
+      window.open(whatsappUrl, '_blank');
       
-      alert('Thank you for contacting AFADU! We will respond within 24 hours.');
+      // Reset form after sending
       setFormData({
         name: '',
         email: '',
@@ -56,9 +77,11 @@ const Contact = () => {
         message: '',
         inquiryType: 'general'
       });
+      
+      showNotification('Thank you! Your message has been sent to AFADU via WhatsApp. We will respond within 24 hours.', 'success');
     } catch (error) {
       console.error('Contact form error:', error);
-      alert('Message failed to send. Please try again.');
+      showNotification('Message failed to send. Please try again or call us directly at +254 710 620294.', 'error');
     } finally {
       setIsSubmitting(false);
     }
@@ -123,6 +146,43 @@ const Contact = () => {
   return (
     <>
       <Navbar />
+      
+      {/* Notification Component */}
+      {notification.show && (
+        <div className={`fixed top-4 right-4 z-50 max-w-sm p-4 rounded-lg shadow-lg transform transition-all duration-300 ${
+          notification.type === 'success' 
+            ? 'bg-green-500 text-white border-l-4 border-green-600' 
+            : 'bg-red-500 text-white border-l-4 border-red-600'
+        }`}>
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              {notification.type === 'success' ? (
+                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              ) : (
+                <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium">{notification.message}</p>
+            </div>
+            <div className="ml-auto pl-3">
+              <button
+                onClick={() => setNotification({ show: false, message: '', type: 'success' })}
+                className="inline-flex text-white hover:text-gray-200 focus:outline-none"
+              >
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -247,9 +307,9 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200"
+                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200"
               >
-                {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                {isSubmitting ? 'Opening WhatsApp...' : 'Send via WhatsApp'}
               </button>
             </form>
           </div>
