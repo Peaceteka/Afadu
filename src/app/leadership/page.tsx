@@ -50,6 +50,27 @@ const Leadership = () => {
       quote: 'Evidence-based approaches are cornerstone of effective public health interventions.'
     },
     {
+      id: 'moses-ombuoro',
+      name: 'Moses Ombuoro',
+      title: 'Vice Chairperson',
+      image: '/images/Mose.png',
+      expertise: 'Biomedical Engineering, Health Technology, Innovation',
+      experience: '18+ years',
+      currentRole: 'Vice Chairperson, AFADU',
+      background: 'Biomedical engineering and health technology expert with extensive experience in medical device innovation, health technology assessment, and digital health solutions.',
+      achievements: [
+        'Medical device innovation and development',
+        'Health technology assessment expertise',
+        'Digital health solution implementations'
+      ],
+      education: [
+        'MSc in Biomedical Engineering - University of Nairobi',
+        'BSc in Electrical Engineering - Jomo Kenyatta University of Agriculture and Technology',
+        'Health Technology certifications'
+      ],
+      quote: 'Innovation in health technology is critical for advancing healthcare delivery.'
+    },
+    {
       id: 'daisy-onyango',
       name: 'Daisy Onyango',
       title: 'Treasurer to the Board',
@@ -76,27 +97,6 @@ const Leadership = () => {
       quote: 'Digital health solutions are foundation of modern, efficient healthcare delivery.'
     },
     {
-      id: 'moses-ombuoro',
-      name: 'Moses Ombuoro',
-      title: 'Board Member',
-      image: '/images/Mose.png',
-      expertise: 'Biomedical Engineering, Health Technology, Innovation',
-      experience: '18+ years',
-      currentRole: 'Biomedical Engineer, AFADU',
-      background: 'Biomedical engineering and health technology expert with extensive experience in medical device innovation, health technology assessment, and digital health solutions.',
-      achievements: [
-        'Medical device innovation and development',
-        'Health technology assessment expertise',
-        'Digital health solution implementations'
-      ],
-      education: [
-        'MSc in Biomedical Engineering - University of Nairobi',
-        'BSc in Electrical Engineering - Jomo Kenyatta University of Agriculture and Technology',
-        'Health Technology certifications'
-      ],
-      quote: 'Innovation in health technology is critical for advancing healthcare delivery.'
-    },
-        {
       id: 'andrew-oluga',
       name: 'Andrew Oluga',
       title: 'Secretary to the Board & Executive Director',
@@ -267,59 +267,87 @@ const Leadership = () => {
       
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden">
-        {/* Logo Background */}
+        {/* Logo Background with Thematic Overlay */}
         <div className="absolute inset-0">
           <img 
             src="/images/logo1.png" 
             alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-green-900/60 to-black/70"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
             <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 bg-white bg-opacity-5 rounded-full mb-8">
+              <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-8 animate-bounce">
                 <span className="text-5xl">👥</span>
               </div>
             </div>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-black">
+            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white">
               Leadership &amp; Governance
             </h1>
-            <p className="text-xl lg:text-2xl text-black max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">
               Meet the distinguished board of experts guiding AFADU&apos;s mission to transform 
               healthcare through rational medicine use and strategic leadership
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setActiveView('grid')}
-                className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+                className={`flex items-center gap-2 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group ${
                   activeView === 'grid' 
-                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-xl' 
-                    : 'bg-white bg-opacity-80 text-green-600 hover:bg-opacity-90 backdrop-blur-sm border-2 border-green-400'
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-xl ring-4 ring-green-200 ring-opacity-50' 
+                    : 'bg-gradient-to-br from-white to-gray-50 text-gray-700 hover:from-green-50 hover:to-blue-50 border-2 border-green-400 hover:border-green-600'
                 }`}
               >
-                Grid View
+                {/* Animated background effect for non-active state */}
+                {activeView !== 'grid' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                )}
+                
+                {/* Icon with enhanced styling */}
+                <span className="text-xl relative z-10">📋</span>
+                
+                {/* Text with improved typography */}
+                <span className="relative z-10 font-medium">Grid View</span>
+                
+                {/* Decorative element for active state */}
+                {activeView === 'grid' && (
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full animate-ping"></div>
+                )}
               </button>
               <button
                 onClick={() => setActiveView('list')}
-                className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+                className={`flex items-center gap-2 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden group ${
                   activeView === 'list' 
-                    ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-xl' 
-                    : 'bg-white bg-opacity-80 text-blue-600 hover:bg-opacity-90 backdrop-blur-sm border-2 border-blue-400'
+                    ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-xl ring-4 ring-blue-200 ring-opacity-50' 
+                    : 'bg-gradient-to-br from-white to-gray-50 text-gray-700 hover:from-blue-50 hover:to-green-50 border-2 border-blue-400 hover:border-blue-600'
                 }`}
               >
-                List View
+                {/* Animated background effect for non-active state */}
+                {activeView !== 'list' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                )}
+                
+                {/* Icon with enhanced styling */}
+                <span className="text-xl relative z-10">📝</span>
+                
+                {/* Text with improved typography */}
+                <span className="relative z-10 font-medium">List View</span>
+                
+                {/* Decorative element for active state */}
+                {activeView === 'list' && (
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full animate-ping"></div>
+                )}
               </button>
             </div>
           </div>
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-600 opacity-5 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gray-500 opacity-5 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-gray-400 opacity-5 rounded-full animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute top-40 right-32 w-24 h-24 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
       </section>
 
       {/* Board Introduction */}

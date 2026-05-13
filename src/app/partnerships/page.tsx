@@ -141,27 +141,27 @@ const Partnerships = () => {
       
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden">
-        {/* Logo Background */}
+        {/* Logo Background with Thematic Overlay */}
         <div className="absolute inset-0">
           <img 
             src="/images/logo1.png" 
             alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-green-900/60 to-black/70"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="text-center">
             <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-5 rounded-full mb-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-6 animate-bounce">
                 <span className="text-4xl">🤝</span>
               </div>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-black">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
               Our Partners
             </h1>
-            <p className="text-xl lg:text-2xl text-black max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
               Building strong collaborations with leading organizations to advance 
               healthcare and promote rational medicine use across Kenya and beyond
             </p>
@@ -169,27 +169,30 @@ const Partnerships = () => {
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-5 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-5 rounded-full animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
       </section>
 
       {/* Partnership Benefits */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
+              <span className="text-2xl">🤝</span>
+            </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Why Partner With Us
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Our partnerships create mutual value and amplify our collective impact
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {partnershipBenefits.map((benefit, index) => (
-              <div key={index} className="text-center bg-gradient-to-br from-slate-50 to-gray-50 rounded-xl p-6 border border-slate-200">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-600 rounded-full mb-4">
+              <div key={index} className="text-center bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
                   <span className="text-2xl">{benefit.icon}</span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
@@ -201,7 +204,7 @@ const Partnerships = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-gray-50 border-y border-gray-200">
+      <section className="py-8 bg-gradient-to-br from-blue-50 to-green-50 border-y border-blue-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
@@ -210,8 +213,8 @@ const Partnerships = () => {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-slate-600 to-gray-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    ? 'bg-gradient-to-r from-blue-600 to-green-600 text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-blue-50 border border-blue-200'
                 }`}
               >
                 <span className="text-lg">{category.icon}</span>
@@ -223,26 +226,29 @@ const Partnerships = () => {
       </section>
 
       {/* Partners Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
+              <span className="text-2xl">🌐</span>
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Our Partner Network
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Collaborating with diverse organizations to achieve our shared mission
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPartners.map((partner) => (
-              <div key={partner.id} className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={partner.id} className="bg-white rounded-xl shadow-lg border border-blue-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-100 to-gray-100 rounded-full mr-4">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4">
                     <span className="text-2xl">{partner.logo}</span>
                   </div>
                   <div>
-                    <span className="inline-block px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-full mb-2">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-2">
                       {partner.partnershipType}
                     </span>
                   </div>
@@ -250,7 +256,7 @@ const Partnerships = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{partner.name}</h3>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">{partner.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                  <span className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
                     {partner.focus}
                   </span>
                   {partner.website !== '#' && (
@@ -258,7 +264,7 @@ const Partnerships = () => {
                       href={partner.website} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-slate-600 hover:text-slate-700 font-medium text-sm flex items-center gap-1"
+                      className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
                     >
                       Visit
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
