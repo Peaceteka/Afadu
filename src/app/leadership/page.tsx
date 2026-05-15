@@ -25,131 +25,72 @@ const Leadership = () => {
     {
       id: 'willis-ayieko',
       name: 'Professor Willis Ayieko',
-      title: 'Chairperson of the Board',
+      title: 'Vice Chairperson',
       image: '/images/Prof Willis.png',
-      expertise: 'Epidemiology, Biostatistics, Global Health Research, Health Economics, Vaccine Policy',
+      currentRole: 'Assistant Professor of Medical Statistics and Epidemiology, London School of Hygiene & Tropical Medicine',
+      expertise: 'Epidemiology, Biostatistics, Implementation Science',
+      background: 'An internationally respected epidemiologist, biostatistician, and global health researcher with extensive experience in implementation science, health systems research, child health, and evidence-based policy development.',
       experience: '20+ years',
-      currentRole: 'Assistant Professor of Medical Statistics and Epidemiology, London School of Hygiene & Tropical Medicine (LSHTM)',
-      background: 'Professor Willis Ayieko is an accomplished epidemiologist, biostatistician, and global health researcher with over two decades of experience in health systems research, clinical epidemiology, and implementation science. His work spans Africa and international research institutions, with a strong focus on improving child health outcomes, strengthening health systems, and advancing evidence-based policy and practice in low- and middle-income countries.',
-      detailedProfile: 'Dr. Ayieko currently serves as an Assistant Professor of Medical Statistics and Epidemiology at the London School of Hygiene & Tropical Medicine (LSHTM), where he is also a Statistician with the Mwanza Intervention Trials Unit (MITU) in Tanzania. In this role, he provides advanced statistical leadership and methodological expertise across large-scale clinical trials and public health research programs, supporting design, analysis, and interpretation of complex health data to inform policy and practice.\n\nPrior to this, Dr. Ayieko held senior research leadership roles at the Kenya Medical Research Institute (KEMRI)–Wellcome Trust Research Programme, where he served as Lead Epidemiologist for the Clinical Information Network (CIN). In this capacity, he played a pivotal role in strengthening data systems and improving quality of paediatric care across Kenyan hospitals through the use of real-time clinical data, audit, and feedback mechanisms. His work contributed significantly to shaping national approaches to quality improvement in hospital care.\n\nHis earlier career includes postdoctoral research at the Health Services Implementation Research and Clinical Excellence Collaboration (SIRCLE), where he focused on translating research evidence into improved clinical practice, as well as progressive roles within KEMRI–Wellcome Trust as a Research Officer and Assistant Research Officer. Across these roles, he has led and contributed to major multicenter studies, including longitudinal research on pediatric hospital admissions and large-scale cost-effectiveness analyses of vaccines and child health interventions.\n\nDr. Ayieko holds a PhD in Epidemiology and Biostatistics from the University of Amsterdam, as well as a Master of Science and Postgraduate Diploma in Epidemiology from LSHTM, one of the world\'s leading institutions in public health. He also earned a Bachelor of Science from the University of Nairobi, grounding his career in both local and global academic excellence.\n\nInternationally, Dr. Ayieko has held prestigious academic and research appointments, including serving as an Honorary Visiting Research Fellow at the University of Oxford\'s Nuffield Department of Medicine and as Adjunct Faculty at Pwani University in Kenya. These roles reflect his recognition as a thought leader and his commitment to building research capacity and academic collaboration across institutions.\n\nHis research portfolio is distinguished by high-impact contributions in child health, health economics, vaccine policy, and health systems strengthening. Notably, he has contributed to landmark studies assessing the cost-effectiveness of pneumococcal vaccines in Kenyan infants, as well as large multicenter hospital studies involving thousands of patients and health workers. His work has directly informed policy decisions and resource allocation in maternal and child health programs.\n\nDr. Ayieko has authored multiple peer-reviewed scientific publications and presented his work at leading international conferences, including the International Symposium on Pneumococci and Pneumococcal Diseases and global health economics forums. His expertise spans advanced statistical analysis, epidemiological modeling, and the application of data to improve clinical care and public health outcomes.\n\nIn addition to his technical expertise, Dr. Ayieko is recognized for his strong analytical, communication, and mentorship skills. He is highly proficient in a wide range of statistical and data management tools and has played a key role in building capacity among researchers and healthcare professionals.\n\nOverall, Dr. Philip Ayieko is a highly respected global health expert whose work bridges rigorous research and practical health system improvements. His contributions continue to shape evidence-based healthcare delivery, particularly in resource-limited settings, with lasting impact on policy, practice, and population health outcomes.',
-      achievements: [
-        'Leadership in multi-country epidemiological studies',
-        'Extensive publications in peer-reviewed journals',
-        'Expert consultation for international health organizations',
-        'Cost-effectiveness analyses of vaccines and child health interventions',
-        'Statistical leadership in large-scale clinical trials',
-        'Health systems strengthening across Kenyan hospitals',
-        'Academic appointments at Oxford, LSHTM, and Pwani University',
-        'Mentorship and capacity building for researchers'
-      ],
-      education: [
-        'PhD in Epidemiology and Biostatistics - University of Amsterdam',
-        'MSc in Medical Statistics - London School of Hygiene & Tropical Medicine',
-        'BSc in Mathematics - University of Nairobi'
-      ],
-      quote: 'Evidence-based approaches are cornerstone of effective public health interventions.'
+      detailedProfile: 'An internationally respected epidemiologist, biostatistician, and global health researcher with extensive experience in implementation science, health systems research, child health, and evidence-based policy development.',
+      education: [],
+      achievements: [],
+      quote: ''
     },
     {
       id: 'moses-ombuoro',
       name: 'Moses Ombuoro',
-      title: 'Vice Chairperson',
+      title: 'Treasurer',
       image: '/images/Mose.png',
-      expertise: 'Biomedical Engineering, Health Technology, Innovation',
-      experience: '18+ years',
       currentRole: 'Vice Chairperson, AFADU',
-      background: 'Biomedical engineering and health technology expert with extensive experience in medical device innovation, health technology assessment, and digital health solutions.',
-      achievements: [
-        'Medical device innovation and development',
-        'Health technology assessment expertise',
-        'Digital health solution implementations'
-      ],
-      education: [
-        'MSc in Biomedical Engineering - University of Nairobi',
-        'BSc in Electrical Engineering - Jomo Kenyatta University of Agriculture and Technology',
-        'Health Technology certifications'
-      ],
-      quote: 'Innovation in health technology is critical for advancing healthcare delivery.'
+      expertise: 'Biomedical Engineering, Disease Control, Community Health Systems',
+      background: 'A multidisciplinary health professional with expertise in biomedical engineering, epidemiology, disease control, and community health systems.',
+      experience: '18+ years',
+      detailedProfile: 'A multidisciplinary health professional with expertise in biomedical engineering, epidemiology, disease control, and community health systems.',
+      education: [],
+      achievements: [],
+      quote: ''
     },
     {
       id: 'daisy-onyango',
       name: 'Daisy Onyango',
-      title: 'Treasurer to the Board',
+      title: 'Executive Director & Board Secretary',
       image: '/images/Daisy.png',
-      expertise: 'Health Informatics, Information Management, Digital Health Systems, Healthcare Data Security',
+      currentRole: 'Executive Director, AFADU',
+      expertise: 'Health Informatics, Digital Transformation, Health Information Systems',
+      background: 'An experienced health informatics and digital transformation specialist currently serving within Kenya’s digital health ecosystem with expertise in health information systems and healthcare management.',
       experience: '10+ years',
-      currentRole: 'Health Informatics Officer, Digital Health Agency',
-      background: 'Daisy Onyango is a seasoned Information Management professional with over 10 years of experience driving digital transformation across Kenya\'s public health, legal, and government sectors. Currently serving as a Health Informatics Officer at the Digital Health Agency, Daisy specializes in building secure, high-accuracy healthcare systems designed to optimize institutional efficiency and service delivery. Her diverse career includes managing critical Health Information Systems for Nairobi City County, coordinating data for the national COVID-19 vaccination program, and overseeing large-scale digitization projects for the Kenyan Judiciary and National Museums.',
-      detailedProfile: 'Throughout her career, Daisy has demonstrated exceptional leadership in health informatics, combining technical expertise with strategic vision. Her work at Nairobi City County involved managing complex health data systems that serve millions of residents, ensuring data accuracy and system reliability. During the COVID-19 pandemic, she played a crucial role in coordinating vaccination data systems, contributing to national public health response efforts.\n\nHer experience with the Digital Health Agency has positioned her at the forefront of Kenya\'s digital health transformation, where she continues to innovate and implement cutting-edge healthcare technology solutions. Her work with the Kenyan Judiciary and National Museums showcases her versatility in applying health informatics principles across different government sectors.\n\nDaisy\'s academic foundation includes a B.Sc. in Information Science from Kenyatta University, and she is currently pursuing an MBA in Healthcare Management to bridge the gap between technical informatics and strategic health leadership. This commitment to continuous learning reflects her dedication to staying current with emerging healthcare technologies and management practices.\n\nHer expertise spans health information systems architecture, data security, project management, and digital health strategy, making her a valuable asset to AFADU\'s mission of promoting appropriate drug use through technology-enabled solutions.',
-      achievements: [
-        'Managed critical Health Information Systems for Nairobi City County',
-        'Coordinated data for national COVID-19 vaccination program',
-        'Led digitization projects for Kenyan Judiciary and National Museums',
-        'Health informatics leadership at Digital Health Agency',
-        'B.Sc. in Information Science from Kenyatta University',
-        'Pursuing MBA in Healthcare Management',
-        '10+ years experience in digital transformation',
-        'Expertise in healthcare data security and system optimization'
-      ],
-      education: [
-        'B.Sc. in Information Science - Kenyatta University',
-        'MBA in Healthcare Management (In Progress) - Current Program'
-      ],
-      quote: 'Digital health solutions are foundation of modern, efficient healthcare delivery.'
+      detailedProfile: 'An experienced health informatics and digital transformation specialist currently serving within Kenya’s digital health ecosystem with expertise in health information systems and healthcare management.',
+      education: [],
+      achievements: [],
+      quote: ''
     },
     {
       id: 'andrew-oluga',
       name: 'Andrew Oluga',
-      title: 'Secretary to the Board & Executive Director',
+      title: 'Board Member',
       image: '/images/Andrew Oluga.png',
-      expertise: 'Pharmaceuticals, Health Systems, Community Development, Project Management, Grant Writing, Monitoring & Evaluation',
+      currentRole: 'Executive Director (former) / Board Member',
+      expertise: 'Pharmaceuticals, Health Systems, Project Management',
+      background: 'A seasoned pharmaceutical, health systems, community development, and project management expert with over 22 years of experience in health systems strengthening, policy analysis, pharmaceutical management, grant development, strategy design, and monitoring & evaluation.',
       experience: '22+ years',
-      currentRole: 'Executive Director, AFADU',
-      background: 'Andrew Oluga is a Pharmaceuticals, Health Systems, Community Development, and Project Management professional, with over 22 years of experience spanning policy development and analysis, pharmaceutical care practice, health systems strengthening, program and project design and management, grant writing, and comprehensive monitoring and evaluation (M&E), including logical frameworks and theory of change. Mr. Oluga is also skilled in strategy development, organizational restructuring, participatory approaches, and rational medicines management.',
-      detailedProfile: 'Mr. Oluga has participated in complex multi-country assignments with Intergovernmental Authority on Development (IGAD), United Nations Development Programme (UNDP), UNICEF, British Council, Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ), Ecumenical Pharmaceutical Network (EPN), and other international organizations. He has proven ability to design systems, conduct operational research, build institutional capacity, and deliver high-impact policy and programmatic solutions.\n\nHis expertise encompasses pharmaceutical care practice, health systems strengthening, program design and management, grant writing, and comprehensive M&E including logical frameworks and theory of change. This diverse skill set enables him to address complex healthcare challenges through integrated, evidence-based approaches.\n\nAndrew has demonstrated exceptional leadership in strategy development and organizational restructuring, with strong capabilities in participatory approaches that engage stakeholders and ensure sustainable program implementation. His work with international organizations highlights his ability to operate effectively in multi-cultural environments and deliver results that align with global health priorities.\n\nHis specialization in rational medicines management positions him as a key thought leader in appropriate drug use advocacy and policy development, contributing significantly to AFADU\'s mission and strategic objectives.',
-      achievements: [
-        'Multi-country assignments with IGAD, UNDP, UNICEF, British Council, GIZ',
-        'Projects with Ecumenical Pharmaceutical Network (EPN)',
-        'Systems design and operational research',
-        'Institutional capacity building',
-        'Policy and programmatic solutions',
-        'Strategy development and organizational restructuring',
-        'Participatory approaches to program implementation',
-        'Grant writing and comprehensive M&E frameworks',
-        'Rational medicines management expertise'
-      ],
-      education: [
-        'Pharmacy Degree - University of Nairobi',
-        'Advanced Pharmaceutical Sciences training',
-        'Project Management certifications',
-        'Health Systems professional development'
-      ],
-      quote: 'Effective health systems require strong leadership, evidence-based policies, and sustainable programs.'
+      detailedProfile: 'A seasoned pharmaceutical, health systems, community development, and project management expert with over 22 years of experience.',
+      education: [],
+      achievements: [],
+      quote: ''
     },
     {
       id: 'david-dianga',
-      name: 'David Dianga',
+      name: 'David Diang\'a',
       title: 'Board Member',
       image: '/images/David Dianga.png',
-      expertise: 'Pharmaceutical Supply Chain, Health Systems, Programme Implementation, Partnerships, Donor Engagement',
-      experience: '22+ years',
       currentRole: 'Supply Chain Specialist, AFADU',
-      background: 'David Dianga is a highly experienced pharmaceutical and health supply chain specialist with over 22 years of practice, including 14 years in HIV, TB, and malaria programmes. As a Technical Officer, Chain Supply Management at Amref Health Africa, he provided strategic leadership in programme implementation, partnerships, and donor engagement, working closely with government and global partners.',
-      detailedProfile: 'David has demonstrated exceptional expertise in health systems strengthening, programme design, and multi-stakeholder coordination. His work at Amref Health Africa involves managing complex supply chain systems that ensure essential medicines reach communities in need across Kenya.\n\nThroughout his career, David has been recognized for his ability to coordinate large-scale health programmes and build effective partnerships with government agencies, international donors, and community organizations. His experience spans technical implementation, strategic planning, and operational management.\n\nHis specialization in pharmaceutical supply chain management has been critical in ensuring reliable access to essential medicines, particularly in resource-limited settings. David\'s work contributes directly to AFADU\'s mission of promoting rational medicine use through efficient supply systems and program coordination.\n\nDavid\'s expertise includes health systems strengthening, programme design, multi-stakeholder coordination, and donor relationship management. His comprehensive understanding of both technical and programmatic aspects makes him a valuable asset to AFADU\'s leadership team.',
-      achievements: [
-        '22+ years experience in pharmaceutical supply chain management',
-        '14 years specialized experience in HIV, TB, and malaria programmes',
-        'Technical Officer, Supply Chain Management at Amref Health Africa',
-        'Strategic leadership in programme implementation',
-        'Expertise in partnerships and donor engagement',
-        'Health systems strengthening across multiple health programmes',
-        'Multi-stakeholder coordination and management'
-      ],
-      education: [
-        'Pharmacy Degree - University of Nairobi',
-        'Advanced Pharmaceutical Supply Chain Management Training',
-        'Health Systems Strengthening Certifications'
-      ],
-      quote: 'Efficient supply chains are backbone of accessible and quality healthcare delivery.'
+      expertise: 'Pharmaceutical Supply Chain, Programme Implementation',
+      background: 'A highly experienced pharmaceutical and health supply chain specialist with over 22 years of expertise in HIV, TB, malaria programs, and health systems strengthening.',
+      experience: '22+ years',
+      detailedProfile: 'A highly experienced pharmaceutical and health supply chain specialist with over 22 years of expertise in HIV, TB, malaria programs, and health systems strengthening.',
+      education: [],
+      achievements: [],
+      quote: ''
     }
   ];
 
