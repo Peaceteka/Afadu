@@ -22,7 +22,8 @@ const Partnerships = () => {
       category: 'international',
       website: 'https://www.reactgroup.org/africa/',
       description: 'Action on Antibiotic Resistance - A global network working to contain antimicrobial resistance through coordinated action.',
-      logo: '🌍',
+      logo: '/images/reactuafrica.png',
+      logoFallback: '🌍',
       partnershipType: 'Strategic Partner',
       focus: 'AMR Containment'
     },
@@ -32,7 +33,8 @@ const Partnerships = () => {
       category: 'international',
       website: 'http://corsum.org/',
       description: 'Coalition for Rational and Safe Use of Medicines - Working globally to promote safe and rational medicine use.',
-      logo: '💊',
+      logo: '/images/corsum.png',
+      logoFallback: '💊',
       partnershipType: 'Strategic Partner',
       focus: 'Medicine Safety'
     },
@@ -42,7 +44,8 @@ const Partnerships = () => {
       category: 'international',
       website: 'https://www.hifa.org/',
       description: 'Health Information For All - Global campaign working towards a world where every person has access to essential healthcare information.',
-      logo: '📚',
+      logo: '/images/hifa.png',
+      logoFallback: '📚',
       partnershipType: 'Knowledge Partner',
       focus: 'Health Information'
     },
@@ -52,7 +55,8 @@ const Partnerships = () => {
       category: 'government',
       website: '#',
       description: 'Kenya\'s national health authority responsible for healthcare policy, regulation, and service delivery.',
-      logo: '🏛️',
+      logo: '/images/moh.png',
+      logoFallback: '🏛️',
       partnershipType: 'Government Partner',
       focus: 'Health Policy'
     },
@@ -62,7 +66,8 @@ const Partnerships = () => {
       category: 'government',
       website: 'https://web.pharmacyboardkenya.org/',
       description: 'National regulatory authority for medicines and pharmacy practice in Kenya.',
-      logo: '⚗️',
+      logo: '/images/ppb.png',
+      logoFallback: '⚗️',
       partnershipType: 'Regulatory Partner',
       focus: 'Medicine Regulation'
     },
@@ -72,7 +77,8 @@ const Partnerships = () => {
       category: 'government',
       website: 'https://www.chak.or.ke/',
       description: 'National umbrella organization for faith-based health facilities in Kenya.',
-      logo: '⛪',
+      logo: '/images/chaok.jpeg',
+      logoFallback: '⛪',
       partnershipType: 'Implementation Partner',
       focus: 'Health Service Delivery'
     },
@@ -82,7 +88,8 @@ const Partnerships = () => {
       category: 'professional',
       website: '#',
       description: 'Professional body representing pharmacists in Kenya, promoting excellence in pharmacy practice.',
-      logo: '👨‍⚕️',
+      logo: '/images/psko.jpeg',
+      logoFallback: '👨‍⚕️',
       partnershipType: 'Professional Partner',
       focus: 'Pharmacy Practice'
     },
@@ -92,7 +99,8 @@ const Partnerships = () => {
       category: 'professional',
       website: '#',
       description: 'Association representing pharmaceutical professionals and industry stakeholders in Kenya.',
-      logo: '💼',
+      logo: '/images/kpa.png',
+      logoFallback: '💼',
       partnershipType: 'Professional Partner',
       focus: 'Pharmaceutical Industry'
     },
@@ -102,11 +110,15 @@ const Partnerships = () => {
       category: 'academic',
       website: '#',
       description: 'Partner institutions training various cadres of health workers across Kenya.',
-      logo: '🎓',
+      logo: 'https://www.heafkenya.org/images/heaf-logo.png',
+      logoFallback: '🎓',
       partnershipType: 'Academic Partner',
       focus: 'Health Workforce Training'
     }
   ];
+
+  // Featured partners for showcase
+  const featuredPartners = [partners[0], partners[1], partners[3], partners[4]];
 
   const filteredPartners = selectedCategory === 'all' 
     ? partners 
@@ -172,6 +184,51 @@ const Partnerships = () => {
         <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
         <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
+      </section>
+
+      {/* Featured Partners Logos */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our Partners
+            </h2>
+            <p className="text-lg text-gray-500">
+              Trusted collaborations with leading organizations
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12">
+            {filteredPartners.length > 0 ? (
+              filteredPartners.map((partner) => (
+                <div key={partner.id} className="flex flex-col items-center justify-center group">
+                  <div className="w-32 h-32 flex items-center justify-center mb-6 bg-white rounded-full shadow-md border-2 border-gray-200 overflow-hidden group-hover:shadow-lg transition-all duration-300 transform group-hover:scale-110">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      className="w-full h-full object-contain p-4"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        const parent = (e.target as HTMLImageElement).parentElement;
+                        if (parent) {
+                          const fallback = document.createElement('span');
+                          fallback.className = 'text-5xl';
+                          fallback.textContent = partner.logoFallback;
+                          parent.appendChild(fallback);
+                        }
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-center font-semibold text-gray-800 text-sm">{partner.name}</h3>
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-8 text-gray-500">
+                No partners found in this category.
+              </div>
+            )}
+          </div>
+        </div>
       </section>
 
       {/* Partnership Benefits */}
@@ -244,8 +301,18 @@ const Partnerships = () => {
             {filteredPartners.map((partner) => (
               <div key={partner.id} className="bg-white rounded-xl shadow-lg border border-blue-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4">
-                    <span className="text-2xl">{partner.logo}</span>
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4 flex-shrink-0 border-2 border-blue-200 overflow-hidden">
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name}
+                      className="w-full h-full object-contain p-1"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        const fallback = (e.target as HTMLImageElement).parentElement?.querySelector('[data-fallback]');
+                        if (fallback) (fallback as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span data-fallback className="text-2xl">{partner.logoFallback}</span>
                   </div>
                   <div>
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-2">
