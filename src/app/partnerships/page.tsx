@@ -22,7 +22,7 @@ const Partnerships = () => {
       category: 'international',
       website: 'https://www.reactgroup.org/africa/',
       description: 'Action on Antibiotic Resistance - A global network working to contain antimicrobial resistance through coordinated action.',
-      logo: '/images/reactuafrica.png',
+      logo: '/images/reactafrica.png',
       logoFallback: '🌍',
       partnershipType: 'Strategic Partner',
       focus: 'AMR Containment'
@@ -202,7 +202,7 @@ const Partnerships = () => {
             {filteredPartners.length > 0 ? (
               filteredPartners.map((partner) => (
                 <div key={partner.id} className="flex flex-col items-center justify-center group">
-                  <div className="w-32 h-32 flex items-center justify-center mb-6 bg-white rounded-full shadow-md border-2 border-gray-200 overflow-hidden group-hover:shadow-lg transition-all duration-300 transform group-hover:scale-110">
+                  <div className="w-40 h-40 flex items-center justify-center mb-6 bg-white rounded-full shadow-md border-2 border-gray-200 overflow-hidden group-hover:shadow-lg transition-all duration-300 transform group-hover:scale-110">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
@@ -301,7 +301,7 @@ const Partnerships = () => {
             {filteredPartners.map((partner) => (
               <div key={partner.id} className="bg-white rounded-xl shadow-lg border border-blue-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4 flex-shrink-0 border-2 border-blue-200 overflow-hidden">
+                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4 flex-shrink-0 border-2 border-blue-200 overflow-hidden">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}

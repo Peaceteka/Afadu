@@ -6,12 +6,13 @@ const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
   
   const subtitles = [
-    'Improving healthcare systems through responsible medicine practices and community empowerment',
-    'Strengthening health systems and promoting access to quality medicines',
-    'Building capacity for sustainable healthcare delivery across Kenya',
-    'Combating antimicrobial resistance through education and stewardship',
-    'Empowering communities with knowledge for better health outcomes',
-    'Partnerships for sustainable healthcare solutions in Kenya'
+    'Irrational and inappropriate use of medicines',
+    'Escalating Antimicrobial Resistance (AMR)',
+    'Weak medicines monitoring and surveillance systems',
+    'Inadequate pharmaceutical governance mechanisms',
+    'Poor public awareness on safe medicine use',
+    'Increasing burden of emerging and re-emerging diseases',
+    'Inequitable access to essential medicines and healthcare services'
   ];
 
   useEffect(() => {
