@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import ProgramCard from '@/components/ProgramCard';
 import Navbar from '@/components/Navbar';
 
 const Programs = () => {
@@ -151,17 +150,38 @@ const Programs = () => {
   return (
     <>
       <Navbar />
+
+      {/* Hero Section */}
+      <section className="relative text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/afudu1.webp)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-blue-900/78 to-green-950/82" />
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">7 Strategic Focus Areas</span>
+            </div>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+              Our Programs
+            </h1>
+            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed">
+              Comprehensive, evidence-based programs designed to improve healthcare systems
+              and promote rational use of medicines across all 47 counties of Kenya.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Programs
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive programs designed to improve healthcare systems and promote rational use of medicines across Kenya
-          </p>
-        </div>
 
         {/* Programmatic Pillars Overview */}
         <div className="bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 rounded-2xl p-8 mb-12 border border-blue-200">
@@ -295,7 +315,7 @@ const Programs = () => {
 
         {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredPrograms.map((program, index) => (
+          {filteredPrograms.map((program) => (
             <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               {/* Program Header */}
               <div className="bg-gradient-to-r from-blue-600 to-green-600 p-6">

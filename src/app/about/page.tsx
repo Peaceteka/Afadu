@@ -173,76 +173,68 @@ const About = () => {
       
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/boardroom.png)' }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-green-900/60 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/85 via-blue-900/75 to-black/70" />
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
         </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
-        <div className="absolute bottom-40 left-20 w-24 h-24 bg-white opacity-10 rounded-full animate-pulse delay-700"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center">
-            <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-5 rounded-full mb-6">
-                <span className="text-4xl">🏥</span>
-              </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">Our Story</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
               About AFADU
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Leading Kenya's healthcare transformation through rational medicine use and 
-              <span className="font-semibold text-white"> 18+ years </span> 
-              of dedicated service to communities nationwide
+            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed mb-8">
+              Leading Kenya&apos;s healthcare transformation through rational medicine use and
+              <span className="font-semibold text-white"> 18+ years </span>
+              of dedicated service to communities nationwide.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/leadership" 
-                className="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/leadership"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-green-600 text-white text-[15px] font-semibold rounded-full hover:bg-green-500 transition-colors duration-200 shadow-lg"
               >
                 Meet Our Team
               </a>
-              <a 
-                href="#programs" 
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 transform hover:scale-105"
+              <a
+                href="/programs"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white/10 text-white text-[15px] font-semibold rounded-full border border-white/30 hover:bg-white/20 transition-colors duration-200 backdrop-blur-sm"
               >
                 Our Programs
               </a>
             </div>
           </div>
         </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-5 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-5 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-5 rounded-full animate-pulse delay-500"></div>
       </section>
 
       {/* Quick Stats */}
-      <section className="bg-gray-50 py-12 border-b border-gray-200">
+      <section className="bg-blue-950 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">18+</div>
-              <div className="text-gray-600 font-medium">Years Experience</div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-4xl font-bold text-white mb-1">18+</div>
+              <div className="text-blue-300 text-sm font-medium">Years Experience</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">47</div>
-              <div className="text-gray-600 font-medium">Counties Reached</div>
+            <div className="border-l border-white/10">
+              <div className="text-4xl font-bold text-white mb-1">47</div>
+              <div className="text-blue-300 text-sm font-medium">Counties Reached</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">5,000+</div>
-              <div className="text-gray-600 font-medium">Health Workers</div>
+            <div className="border-l border-white/10">
+              <div className="text-4xl font-bold text-white mb-1">5,000+</div>
+              <div className="text-blue-300 text-sm font-medium">Health Workers</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">1M+</div>
-              <div className="text-gray-600 font-medium">Lives Impacted</div>
+            <div className="border-l border-white/10">
+              <div className="text-4xl font-bold text-white mb-1">1M+</div>
+              <div className="text-blue-300 text-sm font-medium">Lives Impacted</div>
             </div>
           </div>
         </div>
@@ -360,44 +352,27 @@ const About = () => {
         </div>
       </section>
 
-      {/* Additional Impact Section with Visual Enhancements */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-        {/* Floating Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 blur-3xl"></div>
-          <div className="absolute top-20 right-20 w-24 h-24 bg-green-200 rounded-full opacity-20 blur-2xl"></div>
-          <div className="absolute bottom-10 left-20 w-40 h-40 bg-blue-100 rounded-full opacity-10 blur-xl"></div>
-          <div className="absolute bottom-20 right-10 w-28 h-28 bg-green-100 rounded-full opacity-10 blur-xl"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Impact in Numbers */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4 animate-bounce">
-              <span className="text-3xl">📊</span>
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Impact in Numbers</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Measurable results that demonstrate our commitment to healthcare excellence
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Our Impact in Numbers</h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Measurable results demonstrating our commitment to healthcare excellence
             </p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-4xl font-bold text-blue-600 mb-2">18+</div>
-              <div className="text-gray-600 font-medium">Years of Experience</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-4xl font-bold text-green-600 mb-2">47</div>
-              <div className="text-gray-600 font-medium">Counties Reached</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-4xl font-bold text-purple-600 mb-2">5,000+</div>
-              <div className="text-gray-600 font-medium">Health Workers Trained</div>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-4xl font-bold text-orange-600 mb-2">1M+</div>
-              <div className="text-gray-600 font-medium">Lives Impacted</div>
-            </div>
+            {[
+              { value: '18+', label: 'Years of Experience', color: 'text-blue-700' },
+              { value: '47', label: 'Counties Reached', color: 'text-green-700' },
+              { value: '5,000+', label: 'Health Workers Trained', color: 'text-blue-700' },
+              { value: '1M+', label: 'Lives Impacted', color: 'text-green-700' },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className={`text-4xl font-bold ${stat.color} mb-2`}>{stat.value}</div>
+                <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

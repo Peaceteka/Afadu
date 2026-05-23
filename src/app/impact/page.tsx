@@ -120,37 +120,32 @@ const Impact = () => {
       
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden">
-        {/* Logo Background with Thematic Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="/images/logo1.png" 
-            alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-green-900/60 to-black/70"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/healthcare-1.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-blue-900/78 to-green-950/82" />
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center">
-            <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-6 animate-bounce">
-                <span className="text-4xl">📈</span>
-              </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">Measured Results</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
               Our Impact
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Transforming healthcare across Kenya through measurable results, 
-              sustainable programs, and lasting community impact
+            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed">
+              Transforming healthcare across Kenya through measurable results,
+              sustainable programs, and lasting community impact since 2008.
             </p>
           </div>
         </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
       </section>
 
       {/* Main Metrics */}

@@ -117,9 +117,6 @@ const Partnerships = () => {
     }
   ];
 
-  // Featured partners for showcase
-  const featuredPartners = [partners[0], partners[1], partners[3], partners[4]];
-
   const filteredPartners = selectedCategory === 'all' 
     ? partners 
     : partners.filter(partner => partner.category === selectedCategory);
@@ -153,37 +150,60 @@ const Partnerships = () => {
       
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden">
-        {/* Logo Background with Thematic Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="/images/logo1.png" 
-            alt="AFADU Logo Background" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-green-900/60 to-black/70"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/images/afudu3.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-blue-900/78 to-green-950/82" />
+          <div className="absolute inset-0 opacity-[0.04]" style={{
+            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="text-center">
-            <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-6 animate-bounce">
-                <span className="text-4xl">🤝</span>
-              </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-green-400" />
+              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">Collaboration &amp; Alliances</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
               Our Partners
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Building strong collaborations with leading organizations to advance 
-              healthcare and promote rational medicine use across Kenya and beyond
+            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed">
+              Building strong collaborations with leading organizations to advance
+              healthcare and promote rational medicine use across Kenya and beyond.
             </p>
           </div>
         </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-full animate-pulse delay-500"></div>
+      </section>
+
+      {/* Partners Logo Marquee */}
+      <section className="relative py-10 overflow-hidden bg-gradient-to-r from-blue-500 via-green-500 to-blue-500">
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.3),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.2),_transparent_30%)]"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <p className="text-sm uppercase tracking-[0.35em] text-white/70 mb-3">
+              Partner Movement
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Logos in Motion
+            </h2>
+          </div>
+          <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-2xl">
+            <div className="logo-marquee flex items-center gap-10 px-8 py-8">
+              {[...filteredPartners, ...filteredPartners].map((partner, index) => (
+                <div key={`${partner.id}-${index}`} className="flex items-center justify-center w-36 h-36 rounded-3xl bg-white/90 shadow-md p-4">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Featured Partners Logos */}
@@ -448,6 +468,21 @@ const Partnerships = () => {
       </section>
 
       <Footer />
+      <style jsx>{`
+        .logo-marquee {
+          animation: partner-marquee 28s linear infinite;
+          gap: 3rem;
+        }
+
+        @keyframes partner-marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </>
   );
 };
