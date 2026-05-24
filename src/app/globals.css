@@ -12,9 +12,15 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Oswald for display headings */
+.font-display {
+  font-family: var(--font-oswald), sans-serif;
+  letter-spacing: -0.02em;
 }
 
 /* Fade transition for ticker */
@@ -28,7 +34,7 @@ body {
 
 /* Logo marquee animation */
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
@@ -36,14 +42,6 @@ body {
   animation: marquee-scroll 28s linear infinite;
 }
 
-/* Page section fade-in */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.photo-marquee {
+  animation: marquee-scroll 22s linear infinite;
 }

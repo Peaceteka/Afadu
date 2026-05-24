@@ -3,144 +3,109 @@
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 
+const achievements = [
+  {
+    title: 'Strong Government Collaboration',
+    description: 'AFADU maintains strong working relationships with Ministry of Health, County Departments of Health, regulatory authorities, and national technical working groups.',
+    tag: 'Policy Partnership',
+    accent: 'border-blue-700',
+  },
+  {
+    title: 'Technical Excellence',
+    description: 'The organization possesses deep expertise in pharmaceuticals, AMR stewardship, public health systems, health policy analysis, monitoring & evaluation, operational research, and digital health solutions.',
+    tag: 'Technical Leadership',
+    accent: 'border-green-600',
+  },
+  {
+    title: 'Proven National Implementation Capacity',
+    description: 'AFADU has successfully implemented large-scale public health campaigns, national medicine use interventions, health worker capacity building programmes, community engagement initiatives, and county health systems strengthening projects.',
+    tag: 'National Scale',
+    accent: 'border-blue-500',
+  },
+  {
+    title: 'Strong Monitoring & Evaluation Systems',
+    description: 'The organization applies results-based management, performance tracking systems, evidence-driven implementation, and adaptive learning approaches.',
+    tag: 'Results-Based',
+    accent: 'border-green-700',
+  },
+  {
+    title: 'Rapid Technical Mobilization',
+    description: 'AFADU can rapidly deploy multidisciplinary expert teams including pharmacists, clinicians, epidemiologists, public health specialists, researchers, and community health experts.',
+    tag: 'Rapid Response',
+    accent: 'border-blue-900',
+  },
+  {
+    title: 'Institutional Capability',
+    description: 'AFADU has established itself as a trusted technical leader in pharmaceutical systems strengthening and public health programming in Kenya.',
+    tag: 'Trusted Leadership',
+    accent: 'border-green-800',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Dr. Jane Mwangi',
+    role: 'County Health Director',
+    location: 'Nairobi County',
+    content: "AFADU's training programs have transformed how our healthcare providers approach medicine use. The impact has been remarkable.",
+  },
+  {
+    name: 'John Kamau',
+    role: 'Pharmacist',
+    location: 'Kiambu County',
+    content: 'The AMR stewardship program has significantly improved antibiotic prescribing practices in our facility. We are seeing real results.',
+  },
+  {
+    name: 'Mary Wanjiku',
+    role: 'Community Health Volunteer',
+    location: 'Nakuru County',
+    content: "AFADU's community education programs have empowered our community with knowledge about safe medicine use.",
+  },
+];
+
 const Impact = () => {
-  const [counters, setCounters] = useState({
-    years: 0,
-    counties: 0,
-    healthWorkers: 0,
-    livesImpacted: 0,
-    facilities: 0,
-    programs: 0
-  });
+  const [counters, setCounters] = useState({ years: 0, counties: 0, healthWorkers: 0, lives: 0, facilities: 0, programs: 0 });
 
   useEffect(() => {
-    const targetCounters = {
-      years: 18,
-      counties: 47,
-      healthWorkers: 5000,
-      livesImpacted: 1000000,
-      facilities: 200,
-      programs: 7
-    };
-
-    const duration = 2000;
+    const targets = { years: 18, counties: 47, healthWorkers: 5000, lives: 1000000, facilities: 200, programs: 7 };
     const steps = 50;
-    const increment = {
-      years: targetCounters.years / steps,
-      counties: targetCounters.counties / steps,
-      healthWorkers: targetCounters.healthWorkers / steps,
-      livesImpacted: targetCounters.livesImpacted / steps,
-      facilities: targetCounters.facilities / steps,
-      programs: targetCounters.programs / steps
-    };
-
-    let currentStep = 0;
+    let step = 0;
     const timer = setInterval(() => {
-      currentStep++;
+      step++;
       setCounters({
-        years: Math.min(Math.floor(increment.years * currentStep), targetCounters.years),
-        counties: Math.min(Math.floor(increment.counties * currentStep), targetCounters.counties),
-        healthWorkers: Math.min(Math.floor(increment.healthWorkers * currentStep), targetCounters.healthWorkers),
-        livesImpacted: Math.min(Math.floor(increment.livesImpacted * currentStep), targetCounters.livesImpacted),
-        facilities: Math.min(Math.floor(increment.facilities * currentStep), targetCounters.facilities),
-        programs: Math.min(Math.floor(increment.programs * currentStep), targetCounters.programs)
+        years: Math.min(Math.floor((targets.years / steps) * step), targets.years),
+        counties: Math.min(Math.floor((targets.counties / steps) * step), targets.counties),
+        healthWorkers: Math.min(Math.floor((targets.healthWorkers / steps) * step), targets.healthWorkers),
+        lives: Math.min(Math.floor((targets.lives / steps) * step), targets.lives),
+        facilities: Math.min(Math.floor((targets.facilities / steps) * step), targets.facilities),
+        programs: Math.min(Math.floor((targets.programs / steps) * step), targets.programs),
       });
-
-      if (currentStep >= steps) {
-        clearInterval(timer);
-      }
-    }, duration / steps);
-
+      if (step >= steps) clearInterval(timer);
+    }, 2000 / steps);
     return () => clearInterval(timer);
   }, []);
-
-  const achievements = [
-    {
-      title: "Strong Government Collaboration",
-      description: "AFADU maintains strong working relationships with Ministry of Health, County Departments of Health, regulatory authorities, and national technical working groups.",
-      icon: "🏛️",
-      impact: "Policy Partnership"
-    },
-    {
-      title: "Technical Excellence",
-      description: "The organization possesses deep expertise in pharmaceuticals, AMR stewardship, public health systems, health policy analysis, monitoring & evaluation, operational research, and digital health solutions.",
-      icon: "🎯",
-      impact: "Technical Leadership"
-    },
-    {
-      title: "Proven National Implementation Capacity",
-      description: "AFADU has successfully implemented large-scale public health campaigns, national medicine use interventions, health worker capacity building programmes, community engagement initiatives, and county health systems strengthening projects.",
-      icon: "🏆",
-      impact: "National Scale Implementation"
-    },
-    {
-      title: "Strong Monitoring & Evaluation Systems",
-      description: "The organization applies results-based management, performance tracking systems, evidence-driven implementation, and adaptive learning approaches.",
-      icon: "📊",
-      impact: "Results-Based Management"
-    },
-    {
-      title: "Rapid Technical Mobilization",
-      description: "AFADU can rapidly deploy multidisciplinary expert teams including pharmacists, clinicians, epidemiologists, public health specialists, researchers, and community health experts.",
-      icon: "⚡",
-      impact: "Rapid Response Capacity"
-    },
-    {
-      title: "Institutional Capability",
-      description: "AFADU has established itself as a trusted technical leader in pharmaceutical systems strengthening and public health programming in Kenya.",
-      icon: "🏢",
-      impact: "Trusted Leadership"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Dr. Jane Mwangi",
-      role: "County Health Director",
-      content: "AFADU's training programs have transformed how our healthcare providers approach medicine use. The impact has been remarkable.",
-      location: "Nairobi County"
-    },
-    {
-      name: "John Kamau",
-      role: "Pharmacist",
-      content: "The AMR stewardship program has significantly improved antibiotic prescribing practices in our facility. We're seeing real results.",
-      location: "Kiambu County"
-    },
-    {
-      name: "Mary Wanjiku",
-      role: "Community Health Volunteer",
-      content: "AFADU's community education programs have empowered our community with knowledge about safe medicine use.",
-      location: "Nakuru County"
-    }
-  ];
 
   return (
     <>
       <Navbar />
-      
-      {/* Hero Section */}
+
+      {/* Hero */}
       <section className="relative text-white overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/healthcare-1.jpg)' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-blue-900/78 to-green-950/82" />
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-
+        />
+        <div className="absolute inset-0 bg-blue-950/82" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-green-400" />
-              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">Measured Results</span>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-8 h-0.5 bg-green-500" />
+              <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Measured Results</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6">
               Our Impact
             </h1>
-            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed">
+            <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
               Transforming healthcare across Kenya through measurable results,
               sustainable programs, and lasting community impact since 2008.
             </p>
@@ -148,86 +113,53 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Main Metrics */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
+      {/* Impact Numbers */}
+      <section className="py-16 bg-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-              <span className="text-2xl">📊</span>
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-500" />
+              <span className="text-xs font-bold text-green-400 tracking-widest uppercase">By the Numbers</span>
+              <span className="w-8 h-0.5 bg-green-500" />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Impact in Numbers
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Measurable results that demonstrate our commitment to healthcare excellence
-            </p>
+            <h2 className="font-display text-3xl font-bold text-white uppercase">Impact in Numbers</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
-              <div className="text-6xl font-bold text-blue-600 mb-4">{counters.years}+</div>
-              <div className="text-xl text-gray-700 font-medium">Years of Experience</div>
-              <p className="text-gray-600 mt-3">Leading healthcare transformation since 2008</p>
-            </div>
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-green-200">
-              <div className="text-6xl font-bold text-green-600 mb-4">{counters.counties}</div>
-              <div className="text-xl text-gray-700 font-medium">Counties Reached</div>
-              <p className="text-gray-600 mt-3">Nationwide coverage across Kenya</p>
-            </div>
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
-              <div className="text-6xl font-bold text-blue-600 mb-4">{counters.healthWorkers.toLocaleString()}+</div>
-              <div className="text-xl text-gray-700 font-medium">Health Workers Trained</div>
-              <p className="text-gray-600 mt-3">Building capacity nationwide</p>
-            </div>
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-green-200">
-              <div className="text-6xl font-bold text-green-600 mb-4">{counters.livesImpacted.toLocaleString()}+</div>
-              <div className="text-xl text-gray-700 font-medium">Lives Impacted</div>
-              <p className="text-gray-600 mt-3">Direct and indirect beneficiaries</p>
-            </div>
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
-              <div className="text-6xl font-bold text-blue-600 mb-4">{counters.facilities}+</div>
-              <div className="text-xl text-gray-700 font-medium">Health Facilities</div>
-              <p className="text-gray-600 mt-3">Strengthened healthcare facilities</p>
-            </div>
-            <div className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-200">
-              <div className="text-6xl font-bold text-slate-600 mb-4">{counters.programs}</div>
-              <div className="text-xl text-gray-700 font-medium">Program Areas</div>
-              <p className="text-gray-600 mt-3">Comprehensive healthcare interventions</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-white/15">
+            {[
+              { value: `${counters.years}+`, label: 'Years' },
+              { value: counters.counties, label: 'Counties' },
+              { value: `${counters.healthWorkers.toLocaleString()}+`, label: 'Workers Trained' },
+              { value: `${counters.lives.toLocaleString()}+`, label: 'Lives Impacted' },
+              { value: `${counters.facilities}+`, label: 'Facilities' },
+              { value: counters.programs, label: 'Program Areas' },
+            ].map((s) => (
+              <div key={s.label} className="text-center py-6 px-4">
+                <div className="font-display text-4xl font-bold text-white uppercase mb-1">{s.value}</div>
+                <div className="text-blue-300 text-xs uppercase tracking-wider">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Key Achievements */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-              <span className="text-2xl">🏆</span>
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-600" />
+              <span className="text-xs font-bold text-green-700 tracking-widest uppercase">Track Record</span>
+              <span className="w-8 h-0.5 bg-green-600" />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Institutional Capability & Achievements
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Technical excellence and proven track record that drive our success
-            </p>
+            <h2 className="font-display text-3xl font-bold text-blue-950 uppercase mb-2">Institutional Capability</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">Technical excellence and proven track record that drive our success</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4">
-                    <span className="text-2xl">{achievement.icon}</span>
-                  </div>
-                  <div>
-                    <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-2">
-                      {achievement.impact}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{achievement.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{achievement.description}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {achievements.map((a) => (
+              <div key={a.title} className={`bg-white rounded-xl shadow-sm border-l-4 ${a.accent} border border-gray-100 p-7`}>
+                <span className="inline-block text-xs font-bold text-green-700 uppercase tracking-wider mb-3">{a.tag}</span>
+                <h3 className="font-display text-lg font-bold text-blue-950 uppercase leading-tight mb-3">{a.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{a.description}</p>
               </div>
             ))}
           </div>
@@ -235,38 +167,45 @@ const Impact = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-              <span className="text-2xl">💬</span>
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-500" />
+              <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Voices of Impact</span>
+              <span className="w-8 h-0.5 bg-green-500" />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Voices of Impact
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              What our partners and beneficiaries say about our work
-            </p>
+            <h2 className="font-display text-3xl font-bold text-white uppercase">What People Say</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-8 border border-blue-200">
-                <div className="mb-4">
-                  <div className="flex items-center mb-4">
-                    <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mr-3">
-                      <span className="text-xl">👤</span>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-blue-600">{testimonial.role}</p>
-                      <p className="text-xs text-gray-500">{testimonial.location}</p>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-white/10 rounded-xl p-7 border border-white/10">
+                <p className="text-blue-100 text-sm leading-relaxed mb-6 italic">"{t.content}"</p>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="text-white font-semibold text-sm">{t.name}</p>
+                  <p className="text-blue-300 text-xs">{t.role}</p>
+                  <p className="text-blue-400 text-xs">{t.location}</p>
                 </div>
-                <p className="text-gray-700 italic leading-relaxed">"{testimonial.content}"</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-14 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-3xl font-bold text-blue-950 uppercase mb-4">Be Part of the Impact</h2>
+          <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
+            Join us in transforming healthcare outcomes for communities across Kenya.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/donate" className="px-8 py-3.5 bg-green-600 text-white text-sm font-bold uppercase tracking-wide rounded-full hover:bg-green-700 transition-colors duration-200">
+              Support Our Work
+            </a>
+            <a href="/contact" className="px-8 py-3.5 text-blue-900 text-sm font-bold uppercase tracking-wide rounded-full border-2 border-blue-900 hover:bg-blue-900 hover:text-white transition-all duration-200">
+              Contact Us
+            </a>
           </div>
         </div>
       </section>

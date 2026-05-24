@@ -4,173 +4,153 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+const categories = [
+  { id: 'all', label: 'All Partners' },
+  { id: 'international', label: 'International' },
+  { id: 'government', label: 'Government' },
+  { id: 'academic', label: 'Academic' },
+  { id: 'professional', label: 'Professional' },
+];
+
+const partners = [
+  {
+    id: 'react-africa',
+    name: 'ReAct Africa',
+    category: 'international',
+    website: 'https://www.reactgroup.org/africa/',
+    description: 'Action on Antibiotic Resistance — A global network working to contain antimicrobial resistance through coordinated action.',
+    logo: '/images/reactafrica.png',
+    logoFallback: 'RA',
+    partnershipType: 'Strategic Partner',
+    focus: 'AMR Containment',
+    accent: 'border-blue-700',
+  },
+  {
+    id: 'corsum',
+    name: 'CoRSUM',
+    category: 'international',
+    website: 'http://corsum.org/',
+    description: 'Coalition for Rational and Safe Use of Medicines — Working globally to promote safe and rational medicine use.',
+    logo: '/images/corsum.png',
+    logoFallback: 'CS',
+    partnershipType: 'Strategic Partner',
+    focus: 'Medicine Safety',
+    accent: 'border-green-600',
+  },
+  {
+    id: 'hifa',
+    name: 'HIFA',
+    category: 'international',
+    website: 'https://www.hifa.org/',
+    description: 'Health Information For All — Global campaign working towards a world where every person has access to essential healthcare information.',
+    logo: '/images/hifa.png',
+    logoFallback: 'HI',
+    partnershipType: 'Knowledge Partner',
+    focus: 'Health Information',
+    accent: 'border-blue-500',
+  },
+  {
+    id: 'moh-kenya',
+    name: 'Ministry of Health Kenya',
+    category: 'government',
+    website: '#',
+    description: "Kenya's national health authority responsible for healthcare policy, regulation, and service delivery.",
+    logo: '/images/moh.png',
+    logoFallback: 'MH',
+    partnershipType: 'Government Partner',
+    focus: 'Health Policy',
+    accent: 'border-green-700',
+  },
+  {
+    id: 'ppb',
+    name: 'Pharmacy and Poisons Board',
+    category: 'government',
+    website: 'https://web.pharmacyboardkenya.org/',
+    description: 'National regulatory authority for medicines and pharmacy practice in Kenya.',
+    logo: '/images/ppb.png',
+    logoFallback: 'PP',
+    partnershipType: 'Regulatory Partner',
+    focus: 'Medicine Regulation',
+    accent: 'border-blue-900',
+  },
+  {
+    id: 'chak',
+    name: 'Christian Health Association of Kenya',
+    category: 'government',
+    website: 'https://www.chak.or.ke/',
+    description: 'National umbrella organization for faith-based health facilities in Kenya.',
+    logo: '/images/chaok.jpeg',
+    logoFallback: 'CK',
+    partnershipType: 'Implementation Partner',
+    focus: 'Health Service Delivery',
+    accent: 'border-green-800',
+  },
+  {
+    id: 'psk',
+    name: 'Pharmaceutical Society of Kenya',
+    category: 'professional',
+    website: '#',
+    description: 'Professional body representing pharmacists in Kenya, promoting excellence in pharmacy practice.',
+    logo: '/images/psko.jpeg',
+    logoFallback: 'PS',
+    partnershipType: 'Professional Partner',
+    focus: 'Pharmacy Practice',
+    accent: 'border-blue-600',
+  },
+  {
+    id: 'kpa',
+    name: 'Kenya Pharmaceutical Association',
+    category: 'professional',
+    website: '#',
+    description: 'Association representing pharmaceutical professionals and industry stakeholders in Kenya.',
+    logo: '/images/kpa.png',
+    logoFallback: 'KP',
+    partnershipType: 'Professional Partner',
+    focus: 'Pharmaceutical Industry',
+    accent: 'border-blue-700',
+  },
+  {
+    id: 'universities',
+    name: 'Universities & Tertiary Colleges',
+    category: 'academic',
+    website: '#',
+    description: 'Partner institutions training various cadres of health workers across Kenya.',
+    logo: 'https://www.heafkenya.org/images/heaf-logo.png',
+    logoFallback: 'UC',
+    partnershipType: 'Academic Partner',
+    focus: 'Health Workforce Training',
+    accent: 'border-green-600',
+  },
+];
+
 const Partnerships = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const categories = [
-    { id: 'all', label: 'All Partners', icon: '🤝' },
-    { id: 'international', label: 'International', icon: '🌍' },
-    { id: 'government', label: 'Government', icon: '🏛️' },
-    { id: 'academic', label: 'Academic', icon: '🎓' },
-    { id: 'professional', label: 'Professional', icon: '⚕️' }
-  ];
-
-  const partners = [
-    {
-      id: 'react-africa',
-      name: 'ReAct Africa',
-      category: 'international',
-      website: 'https://www.reactgroup.org/africa/',
-      description: 'Action on Antibiotic Resistance - A global network working to contain antimicrobial resistance through coordinated action.',
-      logo: '/images/reactafrica.png',
-      logoFallback: '🌍',
-      partnershipType: 'Strategic Partner',
-      focus: 'AMR Containment'
-    },
-    {
-      id: 'corsum',
-      name: 'CoRSUM',
-      category: 'international',
-      website: 'http://corsum.org/',
-      description: 'Coalition for Rational and Safe Use of Medicines - Working globally to promote safe and rational medicine use.',
-      logo: '/images/corsum.png',
-      logoFallback: '💊',
-      partnershipType: 'Strategic Partner',
-      focus: 'Medicine Safety'
-    },
-    {
-      id: 'hifa',
-      name: 'HIFA',
-      category: 'international',
-      website: 'https://www.hifa.org/',
-      description: 'Health Information For All - Global campaign working towards a world where every person has access to essential healthcare information.',
-      logo: '/images/hifa.png',
-      logoFallback: '📚',
-      partnershipType: 'Knowledge Partner',
-      focus: 'Health Information'
-    },
-    {
-      id: 'moh-kenya',
-      name: 'Ministry of Health Kenya',
-      category: 'government',
-      website: '#',
-      description: 'Kenya\'s national health authority responsible for healthcare policy, regulation, and service delivery.',
-      logo: '/images/moh.png',
-      logoFallback: '🏛️',
-      partnershipType: 'Government Partner',
-      focus: 'Health Policy'
-    },
-    {
-      id: 'ppb',
-      name: 'Pharmacy and Poisons Board',
-      category: 'government',
-      website: 'https://web.pharmacyboardkenya.org/',
-      description: 'National regulatory authority for medicines and pharmacy practice in Kenya.',
-      logo: '/images/ppb.png',
-      logoFallback: '⚗️',
-      partnershipType: 'Regulatory Partner',
-      focus: 'Medicine Regulation'
-    },
-    {
-      id: 'chak',
-      name: 'Christian Health Association of Kenya',
-      category: 'government',
-      website: 'https://www.chak.or.ke/',
-      description: 'National umbrella organization for faith-based health facilities in Kenya.',
-      logo: '/images/chaok.jpeg',
-      logoFallback: '⛪',
-      partnershipType: 'Implementation Partner',
-      focus: 'Health Service Delivery'
-    },
-    {
-      id: 'psk',
-      name: 'Pharmaceutical Society of Kenya',
-      category: 'professional',
-      website: '#',
-      description: 'Professional body representing pharmacists in Kenya, promoting excellence in pharmacy practice.',
-      logo: '/images/psko.jpeg',
-      logoFallback: '👨‍⚕️',
-      partnershipType: 'Professional Partner',
-      focus: 'Pharmacy Practice'
-    },
-    {
-      id: 'kpa',
-      name: 'Kenya Pharmaceutical Association',
-      category: 'professional',
-      website: '#',
-      description: 'Association representing pharmaceutical professionals and industry stakeholders in Kenya.',
-      logo: '/images/kpa.png',
-      logoFallback: '💼',
-      partnershipType: 'Professional Partner',
-      focus: 'Pharmaceutical Industry'
-    },
-    {
-      id: 'universities',
-      name: 'Universities & Tertiary Colleges',
-      category: 'academic',
-      website: '#',
-      description: 'Partner institutions training various cadres of health workers across Kenya.',
-      logo: 'https://www.heafkenya.org/images/heaf-logo.png',
-      logoFallback: '🎓',
-      partnershipType: 'Academic Partner',
-      focus: 'Health Workforce Training'
-    }
-  ];
-
-  const filteredPartners = selectedCategory === 'all' 
-    ? partners 
-    : partners.filter(partner => partner.category === selectedCategory);
-
-  const partnershipBenefits = [
-    {
-      title: "Enhanced Reach",
-      description: "Our partnerships enable us to reach more communities and healthcare facilities across Kenya.",
-      icon: "📈"
-    },
-    {
-      title: "Shared Expertise",
-      description: "Collaborating with diverse organizations brings specialized knowledge and skills to our programs.",
-      icon: "🧠"
-    },
-    {
-      title: "Resource Mobilization",
-      description: "Partnerships help us leverage additional resources for greater impact and sustainability.",
-      icon: "💰"
-    },
-    {
-      title: "Policy Influence",
-      description: "Working with government and international partners strengthens our advocacy and policy influence.",
-      icon: "🏛️"
-    }
-  ];
+  const filteredPartners = selectedCategory === 'all'
+    ? partners
+    : partners.filter((p) => p.category === selectedCategory);
 
   return (
     <>
       <Navbar />
-      
-      {/* Hero Section */}
+
+      {/* Hero */}
       <section className="relative text-white overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/images/afudu3.jpg)' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/88 via-blue-900/78 to-green-950/82" />
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-
+        />
+        <div className="absolute inset-0 bg-blue-950/82" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-green-400" />
-              <span className="text-xs font-semibold text-green-300 tracking-widest uppercase">Collaboration &amp; Alliances</span>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-8 h-0.5 bg-green-500" />
+              <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Collaboration &amp; Alliances</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6">
               Our Partners
             </h1>
-            <p className="text-xl text-blue-100 max-w-2xl leading-relaxed">
+            <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
               Building strong collaborations with leading organizations to advance
               healthcare and promote rational medicine use across Kenya and beyond.
             </p>
@@ -178,183 +158,128 @@ const Partnerships = () => {
         </div>
       </section>
 
-      {/* Partners Logo Marquee */}
-      <section className="relative py-10 overflow-hidden bg-gradient-to-r from-blue-500 via-green-500 to-blue-500">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.3),_transparent_25%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.2),_transparent_30%)]"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <p className="text-sm uppercase tracking-[0.35em] text-white/70 mb-3">
-              Partner Movement
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Logos in Motion
-            </h2>
-          </div>
-          <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-2xl">
-            <div className="logo-marquee flex items-center gap-10 px-8 py-8">
-              {[...filteredPartners, ...filteredPartners].map((partner, index) => (
-                <div key={`${partner.id}-${index}`} className="flex items-center justify-center w-36 h-36 rounded-3xl bg-white/90 shadow-md p-4">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Partner Logo Strip */}
+      <section className="bg-blue-900 py-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 text-center">
+          <span className="text-xs font-bold text-blue-300 uppercase tracking-widest">Our Partner Network</span>
         </div>
-      </section>
-
-      {/* Featured Partners Logos */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Partners
-            </h2>
-            <p className="text-lg text-gray-500">
-              Trusted collaborations with leading organizations
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12">
-            {filteredPartners.length > 0 ? (
-              filteredPartners.map((partner) => (
-                <div key={partner.id} className="flex flex-col items-center justify-center group">
-                  <div className="w-40 h-40 flex items-center justify-center mb-6 bg-white rounded-full shadow-md border-2 border-gray-200 overflow-hidden group-hover:shadow-lg transition-all duration-300 transform group-hover:scale-110">
-                    <img 
-                      src={partner.logo} 
-                      alt={partner.name}
-                      className="w-full h-full object-contain p-4"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                        const parent = (e.target as HTMLImageElement).parentElement;
-                        if (parent) {
-                          const fallback = document.createElement('span');
-                          fallback.className = 'text-5xl';
-                          fallback.textContent = partner.logoFallback;
-                          parent.appendChild(fallback);
-                        }
-                      }}
-                    />
-                  </div>
-                  <h3 className="text-center font-semibold text-gray-800 text-sm">{partner.name}</h3>
-                </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-8 text-gray-500">
-                No partners found in this category.
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Partnership Benefits */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-              <span className="text-2xl">🤝</span>
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Partner With Us
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Our partnerships create mutual value and amplify our collective impact
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partnershipBenefits.map((benefit, index) => (
-              <div key={index} className="text-center bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-blue-200">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-                  <span className="text-2xl">{benefit.icon}</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
+        <div className="overflow-hidden">
+          <div className="logo-marquee flex items-center gap-8 px-8">
+            {[...partners, ...partners].map((partner, index) => (
+              <div key={`${partner.id}-${index}`} className="flex items-center justify-center w-28 h-28 flex-shrink-0 rounded-xl bg-white shadow-sm p-3">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-full max-w-full object-contain"
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const parent = img.parentElement;
+                    if (parent) {
+                      const fb = document.createElement('span');
+                      fb.className = 'text-blue-900 font-bold text-sm';
+                      fb.textContent = partner.logoFallback;
+                      parent.appendChild(fb);
+                    }
+                  }}
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-8 bg-gradient-to-br from-blue-50 to-green-50 border-y border-blue-200">
+      {/* Why Partner */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-600" />
+              <span className="text-xs font-bold text-green-700 tracking-widest uppercase">Collaboration</span>
+              <span className="w-8 h-0.5 bg-green-600" />
+            </div>
+            <h2 className="font-display text-3xl font-bold text-blue-950 uppercase mb-2">Why Partner With Us</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">Our partnerships create mutual value and amplify our collective impact</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { title: 'Enhanced Reach', desc: 'Our partnerships enable us to reach more communities and healthcare facilities across Kenya.' },
+              { title: 'Shared Expertise', desc: 'Collaborating with diverse organizations brings specialized knowledge and skills to our programs.' },
+              { title: 'Resource Mobilization', desc: 'Partnerships help us leverage additional resources for greater impact and sustainability.' },
+              { title: 'Policy Influence', desc: 'Working with government and international partners strengthens our advocacy and policy influence.' },
+            ].map((b, i) => (
+              <div key={b.title} className={`bg-white rounded-xl p-6 shadow-sm border-t-4 border-gray-100 ${i % 2 === 0 ? 'border-t-blue-700' : 'border-t-green-600'}`}>
+                <h3 className="font-display text-base font-bold text-blue-950 uppercase mb-2">{b.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Filter */}
+      <section className="bg-gray-50 py-6 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat) => (
               <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                  selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-green-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-blue-50 border border-blue-200'
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`px-5 py-2 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-200 ${
+                  selectedCategory === cat.id
+                    ? 'bg-blue-900 text-white shadow-md'
+                    : 'text-gray-600 bg-white border border-gray-200 hover:border-blue-300 hover:text-blue-700'
                 }`}
               >
-                <span className="text-lg">{category.icon}</span>
-                <span>{category.label}</span>
+                {cat.label}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Partners Grid */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Partner Cards */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-              <span className="text-2xl">🌐</span>
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Our Partner Network
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Collaborating with diverse organizations to achieve our shared mission
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPartners.map((partner) => (
-              <div key={partner.id} className="bg-white rounded-xl shadow-lg border border-blue-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="flex items-center mb-4">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-100 to-green-100 rounded-full mr-4 flex-shrink-0 border-2 border-blue-200 overflow-hidden">
-                    <img 
-                      src={partner.logo} 
+              <div key={partner.id} className={`bg-white rounded-xl shadow-sm border-l-4 ${partner.accent} border border-gray-100 p-7`}>
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg border border-gray-100 overflow-hidden">
+                    <img
+                      src={partner.logo}
                       alt={partner.name}
                       className="w-full h-full object-contain p-1"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                        const fallback = (e.target as HTMLImageElement).parentElement?.querySelector('[data-fallback]');
-                        if (fallback) (fallback as HTMLElement).style.display = 'block';
+                        const img = e.target as HTMLImageElement;
+                        img.style.display = 'none';
+                        const fb = img.parentElement?.querySelector('[data-fb]');
+                        if (fb) (fb as HTMLElement).style.display = 'flex';
                       }}
                     />
-                    <span data-fallback className="text-2xl">{partner.logoFallback}</span>
-                  </div>
-                  <div>
-                    <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-2">
-                      {partner.partnershipType}
+                    <span data-fb className="hidden w-full h-full items-center justify-center text-blue-900 font-bold text-sm">
+                      {partner.logoFallback}
                     </span>
                   </div>
+                  <div>
+                    <span className="text-xs font-bold text-green-700 uppercase tracking-wider">{partner.partnershipType}</span>
+                    <h3 className="font-semibold text-gray-900 text-sm mt-0.5">{partner.name}</h3>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{partner.name}</h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{partner.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{partner.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
                     {partner.focus}
                   </span>
                   {partner.website !== '#' && (
-                    <a 
-                      href={partner.website} 
-                      target="_blank" 
+                    <a
+                      href={partner.website}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1"
+                      className="text-xs font-semibold text-blue-700 hover:text-blue-600 flex items-center gap-1"
                     >
                       Visit
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
@@ -367,100 +292,76 @@ const Partnerships = () => {
       </section>
 
       {/* Partnership Types */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Types of Partnerships
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We engage in various forms of collaboration to maximize our impact
-            </p>
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-600" />
+              <span className="text-xs font-bold text-green-700 tracking-widest uppercase">How We Collaborate</span>
+              <span className="w-8 h-0.5 bg-green-600" />
+            </div>
+            <h2 className="font-display text-3xl font-bold text-blue-950 uppercase">Types of Partnerships</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-slate-600">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Strategic Partnerships</h3>
-              <p className="text-gray-600 mb-4">Long-term collaborations with international organizations to advance our mission and amplify our impact.</p>
-              <ul className="text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Joint program implementation
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Resource mobilization
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                  Knowledge sharing
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-green-600">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Government Partnerships</h3>
-              <p className="text-gray-600 mb-4">Collaboration with national and county government agencies to align with health priorities and policies.</p>
-              <ul className="text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                  Policy development support
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                  Program implementation
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                  Regulatory compliance
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-slate-600">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Professional Partnerships</h3>
-              <p className="text-gray-600 mb-4">Working with professional associations and academic institutions to build capacity and drive excellence.</p>
-              <ul className="text-gray-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
-                  Workforce development
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
-                  Research collaboration
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-purple-600 rounded-full"></span>
-                  Standards development
-                </li>
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Strategic Partnerships',
+                desc: 'Long-term collaborations with international organizations to advance our mission and amplify our impact.',
+                items: ['Joint program implementation', 'Resource mobilization', 'Knowledge sharing'],
+                accent: 'border-blue-700',
+                dot: 'bg-blue-700',
+              },
+              {
+                title: 'Government Partnerships',
+                desc: 'Collaboration with national and county government agencies to align with health priorities and policies.',
+                items: ['Policy development support', 'Program implementation', 'Regulatory compliance'],
+                accent: 'border-green-600',
+                dot: 'bg-green-600',
+              },
+              {
+                title: 'Professional Partnerships',
+                desc: 'Working with professional associations and academic institutions to build capacity and drive excellence.',
+                items: ['Workforce development', 'Research collaboration', 'Standards development'],
+                accent: 'border-blue-500',
+                dot: 'bg-blue-500',
+              },
+            ].map((pt) => (
+              <div key={pt.title} className={`bg-white rounded-xl p-8 shadow-sm border-l-4 ${pt.accent} border border-gray-100`}>
+                <h3 className="font-display text-lg font-bold text-blue-950 uppercase mb-3">{pt.title}</h3>
+                <p className="text-gray-600 text-sm mb-5 leading-relaxed">{pt.desc}</p>
+                <ul className="space-y-2">
+                  {pt.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${pt.dot}`} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-slate-600 to-gray-600 text-white">
+      {/* CTA */}
+      <section className="py-16 bg-blue-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Become Our Partner
-          </h2>
-          <p className="text-xl mb-8 text-gray-200">
-            Join our network of partners working to transform healthcare in Kenya. 
-            Whether you're an organization, government agency, or academic institution, 
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-8 h-0.5 bg-green-500" />
+            <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Join Our Network</span>
+            <span className="w-8 h-0.5 bg-green-500" />
+          </div>
+          <h2 className="font-display text-3xl font-bold text-white uppercase mb-4">Become Our Partner</h2>
+          <p className="text-blue-200 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
+            Join our network of partners working to transform healthcare in Kenya.
+            Whether you are an organization, government agency, or academic institution,
             together we can create lasting impact.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact" className="px-8 py-3.5 bg-green-600 text-white text-sm font-bold uppercase tracking-wide rounded-full hover:bg-green-500 transition-colors duration-200">
               Explore Partnership
             </a>
-            <a 
-              href="/donate" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-gray-800 transition-all duration-300 transform hover:scale-105"
-            >
+            <a href="/donate" className="px-8 py-3.5 text-white text-sm font-bold uppercase tracking-wide rounded-full border border-white/30 hover:bg-white/10 transition-colors duration-200">
               Support Our Work
             </a>
           </div>
@@ -468,21 +369,6 @@ const Partnerships = () => {
       </section>
 
       <Footer />
-      <style jsx>{`
-        .logo-marquee {
-          animation: partner-marquee 28s linear infinite;
-          gap: 3rem;
-        }
-
-        @keyframes partner-marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </>
   );
 };
