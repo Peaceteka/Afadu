@@ -5,15 +5,43 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Oswald for display headings */
+.font-display {
+  font-family: var(--font-oswald), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Fade transition for ticker */
+.transition-opacity {
+  transition-property: opacity;
+}
+
+.duration-400 {
+  transition-duration: 400ms;
+}
+
+/* Logo marquee animation */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logo-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.photo-marquee {
+  animation: marquee-scroll 22s linear infinite;
 }

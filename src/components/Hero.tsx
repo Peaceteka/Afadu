@@ -4,109 +4,130 @@ import { useState, useEffect } from 'react';
 
 const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
-  
-  const subtitles = [
+  const [fade, setFade] = useState(true);
+
+  const challenges = [
     'Irrational and inappropriate use of medicines',
     'Escalating Antimicrobial Resistance (AMR)',
     'Weak medicines monitoring and surveillance systems',
     'Inadequate pharmaceutical governance mechanisms',
     'Poor public awareness on safe medicine use',
     'Increasing burden of emerging and re-emerging diseases',
-    'Inequitable access to essential medicines and healthcare services'
+    'Inequitable access to essential medicines and healthcare services',
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTextIndex((prev) => (prev + 1) % subtitles.length);
-    }, 4000); // Change subtitle every 4 seconds
-
+      setFade(false);
+      setTimeout(() => {
+        setTextIndex((prev) => (prev + 1) % challenges.length);
+        setFade(true);
+      }, 400);
+    }, 4000);
     return () => clearInterval(interval);
-  }, [subtitles.length]);
+  }, [challenges.length]);
 
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-green-400 to-green-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-gradient-to-br from-green-300 to-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
-        <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-gradient-to-br from-blue-300 to-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-6000"></div>
-      </div>
-      
-      {/* Hero Content with Card */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-blue-100">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Hero Image */}
-              <div className="order-2 lg:order-1">
-                <div className="relative">
-                  <img 
-                    src="/images/heroimage.png" 
-                    alt="AFADU Hero" 
-                    className="w-full h-auto rounded-xl shadow-lg"
-                  />
-                  {/* Decorative overlay */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-green-500 rounded-full opacity-20 blur-xl"></div>
-                </div>
+    <section className="relative bg-blue-950 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[88vh]">
+
+          {/* LEFT — full-bleed photo, fills 7 cols */}
+          <div className="hidden lg:block lg:col-span-7 relative -ml-8">
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: 'url(/images/afudu5.jpg)' }}
+            />
+            {/* Right-side fade so content card reads over it */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-950/80" />
+          </div>
+
+          {/* RIGHT — overlapping white content card, 5 cols */}
+          <div className="lg:col-span-5 relative z-10 flex items-center">
+            {/* Card overlaps the image by pulling left */}
+            <div className="w-full lg:-ml-20 bg-white shadow-2xl rounded-2xl px-8 py-12 lg:px-12 my-12 lg:my-16">
+
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-8 h-0.5 bg-green-600" />
+                <span className="text-xs font-bold text-green-700 tracking-widest uppercase">
+                  Est. 2008 · Nairobi, Kenya
+                </span>
               </div>
-              
-              {/* Hero Content */}
-              <div className="order-1 lg:order-2 text-center lg:text-left">
-                {/* AFADU Logo */}
-                <div className="flex justify-center lg:justify-start mb-6">
-                  <img 
-                    src="/images/Afadulogo.png" 
-                    alt="AFADU Logo" 
-                    className="h-20 w-auto drop-shadow-lg"
-                  />
-                </div>
-                
-                <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                  ACTION FOR APPROPRIATE DRUG USE (AFADU)
-                </h1>
-                <div className="text-xl md:text-2xl font-bold text-blue-600 mb-6">
-                  AFADU
-                </div>
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  A healthy society with equitable access to safe quality-assured medicines that are used rationally, responsibly, and effectively to achieve optimal health and well-being.
-                </p>
-                
-                {/* Animated subtitle */}
-                <div className="mb-8 h-8">
-                  <p className="text-lg text-gray-600 italic transition-all duration-500">
-                    {subtitles[textIndex]}
-                  </p>
-                </div>
-                
-                {/* CTA Button */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <a 
-                    href="/programs" 
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:from-blue-600 hover:to-blue-700 border-2 border-blue-400"
-                  >
-                    Our Programs
-                  </a>
-                  <a 
-                    href="/about" 
-                    className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:from-green-600 hover:to-green-700 border-2 border-green-400"
-                  >
-                    Learn More
-                  </a>
-                </div>
+
+              {/* Headline — Oswald display font */}
+              <h1 className="font-display text-4xl sm:text-5xl font-bold text-blue-950 leading-tight uppercase mb-2">
+                Action for
+              </h1>
+              <h1 className="font-display text-4xl sm:text-5xl font-bold text-green-600 leading-tight uppercase mb-2">
+                Appropriate
+              </h1>
+              <h1 className="font-display text-4xl sm:text-5xl font-bold text-blue-950 leading-tight uppercase mb-6">
+                Drug Use
+              </h1>
+
+              {/* Mission */}
+              <p className="text-gray-600 text-base leading-relaxed mb-6 border-l-4 border-green-500 pl-4">
+                A healthy society with equitable access to safe, quality-assured medicines
+                used rationally, responsibly, and effectively.
+              </p>
+
+              {/* Animated challenge ticker */}
+              <div className="mb-8 flex items-start gap-2 min-h-[2.5rem]">
+                <span className="flex-shrink-0 text-xs font-bold text-green-600 uppercase tracking-wider mt-0.5">
+                  Addressing:
+                </span>
+                <span
+                  className="text-gray-500 text-sm leading-snug transition-opacity duration-400"
+                  style={{ opacity: fade ? 1 : 0 }}
+                >
+                  {challenges[textIndex]}
+                </span>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/programs"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-blue-900 text-white text-sm font-bold uppercase tracking-wide rounded-full hover:bg-blue-800 transition-colors duration-200 shadow-md"
+                >
+                  Our Programs
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="/about"
+                  className="inline-flex items-center justify-center px-7 py-3.5 bg-green-600 text-white text-sm font-bold uppercase tracking-wide rounded-full hover:bg-green-700 transition-colors duration-200"
+                >
+                  Learn More
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+
+      {/* Stats bar — full width, navy */}
+      <div className="border-t border-white/10 bg-blue-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="font-display text-3xl font-bold text-white uppercase">18+</div>
+              <div className="text-blue-300 text-xs uppercase tracking-wider mt-0.5">Years of Experience</div>
+            </div>
+            <div className="border-x border-white/15">
+              <div className="font-display text-3xl font-bold text-white uppercase">47</div>
+              <div className="text-blue-300 text-xs uppercase tracking-wider mt-0.5">Counties Reached</div>
+            </div>
+            <div>
+              <div className="font-display text-3xl font-bold text-white uppercase">5,000+</div>
+              <div className="text-blue-300 text-xs uppercase tracking-wider mt-0.5">Health Workers Trained</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,380 +1,191 @@
 'use client';
 
-import { useState } from 'react';
-import ProgramCard from '@/components/ProgramCard';
 import Navbar from '@/components/Navbar';
 
+const programs = [
+  {
+    title: 'Access to Essential & Life-Saving Medicines',
+    description: 'We strengthen medicine supply systems to ensure uninterrupted access to safe, affordable, quality-assured medicines — from procurement to last-mile delivery.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Antimicrobial Resistance (AMR) Stewardship',
+    description: "We implement high-impact AMR containment interventions aligned with Kenya's National Action Plan, establishing AMS committees, surveillance systems, and rational antibiotic use training.",
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Health Workforce Capacity Building',
+    description: 'We deliver integrated capacity strengthening for healthcare workers — from Rational Use of Medicines and pharmacovigilance to CME, HIV/TB/Malaria management, and digital health.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Public Health Education & Community Engagement',
+    description: 'We promote health literacy and positive health-seeking behaviours through targeted SBCC campaigns, school health programmes, media advocacy, and community dialogue forums.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Evidence Generation & Policy Support',
+    description: 'We support evidence-informed policy through medicine utilization surveys, operational research, health policy analysis, and technical assistance to the Ministry of Health.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Integrated Primary & Community Health Programs',
+    description: 'We complement county health priorities through integrated community programming — CHV strengthening, HIV testing, NCD screening, MNCAH education, and school health.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Alcohol & Substance Abuse Prevention',
+    description: 'We implement prevention and response programmes addressing substance use disorders — community sensitization, youth outreach, advocacy, referral, and psychosocial support.',
+    icon: (
+      <svg className="w-14 h-14 text-cyan-500" fill="none" stroke="currentColor" strokeWidth={1.4} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+    ),
+  },
+];
+
+const pillars = [
+  { label: 'Pharmaceutical Systems', desc: 'Supply chain, procurement, forecasting' },
+  { label: 'AMR Stewardship', desc: 'AMS programs, surveillance, containment' },
+  { label: 'Health Workforce', desc: 'Training, mentorship, CME' },
+  { label: 'Community Health', desc: 'Health literacy, SBCC, outreach' },
+  { label: 'Policy & Evidence', desc: 'Research, policy analysis, guidelines' },
+  { label: 'Patient Safety', desc: 'Pharmacovigilance, IPC, quality care' },
+  { label: 'Digital Health', desc: 'Health informatics, data systems' },
+  { label: 'Substance Prevention', desc: 'Prevention, rehabilitation support' },
+];
+
 const Programs = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const categories = [
-    { id: 'all', label: 'All Programs' },
-    { id: 'access', label: 'Medicines Access' },
-    { id: 'amr', label: 'AMR Stewardship' },
-    { id: 'training', label: 'Health Training' },
-    { id: 'community', label: 'Community Health' },
-    { id: 'policy', label: 'Policy & Evidence' },
-    { id: 'prevention', label: 'Prevention Programs' }
-  ];
-
-  const allPrograms = [
-    {
-      id: 1,
-      title: 'Access to Essential & Life-Saving Medicines',
-      description: 'AFADU strengthens medicine supply systems to ensure uninterrupted access to safe, affordable, quality-assured medicines.',
-      icon: '💊',
-      category: 'access',
-      features: [
-        'Medicine supply chain strengthening',
-        'Forecasting & quantification support',
-        'Procurement systems strengthening',
-        'Last-mile distribution systems',
-        'Commodity management training',
-        'Emergency medical supplies support',
-        'Advocacy for equitable access to medicines'
-      ],
-      impact: 'Reached 200+ health facilities',
-      status: 'Active'
-    },
-    {
-      id: 2,
-      title: 'Antimicrobial Resistance (AMR) Stewardship',
-      description: 'AFADU implements high-impact AMR containment interventions aligned with Kenya\'s National Action Plan and global One Health priorities.',
-      icon: '🦠',
-      category: 'amr',
-      features: [
-        'Establishment of AMS Committees',
-        'Rational antibiotic use training',
-        'Antibiotic surveillance systems',
-        'Clinical mentorship & audits',
-        'Community AMR awareness campaigns',
-        'Development of AMS guidelines and SOPs',
-        'Collaboration with national AMR TWGs'
-      ],
-      impact: 'Trained 1,000+ professionals',
-      status: 'Active'
-    },
-    {
-      id: 3,
-      title: 'Health Workforce Capacity Building',
-      description: 'AFADU delivers integrated capacity strengthening programs for healthcare workers across Kenya.',
-      icon: '👥',
-      category: 'training',
-      features: [
-        'Rational Use of Medicines (RUM)',
-        'Pharmaceutical care & pharmacovigilance',
-        'Infection Prevention & Control (IPC)',
-        'HIV, TB, Malaria & NCD management',
-        'Continuous Medical Education (CME)',
-        'Supportive supervision & mentorship',
-        'Digital health & medicine tracking systems'
-      ],
-      impact: '5,000+ workers trained',
-      status: 'Active'
-    },
-    {
-      id: 4,
-      title: 'Public Health Education & Community Engagement',
-      description: 'AFADU promotes health literacy and positive health-seeking behaviors through targeted public engagement interventions.',
-      icon: '🏘',
-      category: 'community',
-      features: [
-        'Safe medicine use campaigns',
-        'Community AMR education',
-        'School health programmes',
-        'Media advocacy (TV, radio, digital)',
-        'Social & Behaviour Change Communication (SBCC)',
-        'Community dialogue forums',
-        'Youth engagement programmes'
-      ],
-      impact: 'Reached 500,000+ people',
-      status: 'Active'
-    },
-    {
-      id: 5,
-      title: 'Evidence Generation & Policy Support',
-      description: 'AFADU supports evidence-informed policy and health systems strengthening.',
-      icon: '📊',
-      category: 'policy',
-      features: [
-        'Medicine utilization surveys',
-        'Operational & implementation research',
-        'Health policy analysis',
-        'Development of guidelines & SOPs',
-        'Technical support to Ministry of Health',
-        'Pharmaceutical regulation support',
-        'Monitoring & evaluation systems'
-      ],
-      impact: 'Influenced national health policies',
-      status: 'Active'
-    },
-    {
-      id: 6,
-      title: 'Integrated Primary & Community Health Programs',
-      description: 'AFADU complements national and county health priorities through integrated community-based programming.',
-      icon: '🏥',
-      category: 'community',
-      features: [
-        'Community Health Promoter (CHP) strengthening',
-        'Integrated outreach services',
-        'HIV testing & counseling',
-        'NCD screening',
-        'MNCAH education',
-        'School health and medicine safety programmes'
-      ],
-      impact: 'Served 47 counties',
-      status: 'Active'
-    },
-    {
-      id: 7,
-      title: 'Alcohol & Substance Abuse Prevention',
-      description: 'AFADU implements prevention and response programmes addressing substance use disorders and harmful alcohol use.',
-      icon: '�',
-      category: 'prevention',
-      features: [
-        'Community sensitization',
-        'Prevention education',
-        'Youth outreach programmes',
-        'Advocacy and policy support',
-        'Referral and rehabilitation support',
-        'Community-based psychosocial support'
-      ],
-      impact: 'Reached 100,000+ youth',
-      status: 'Active'
-    }
-  ];
-
-  const filteredPrograms = activeCategory === 'all' 
-    ? allPrograms 
-    : allPrograms.filter(program => program.category === activeCategory);
-
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Programs
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our comprehensive programs designed to improve healthcare systems and promote rational use of medicines across Kenya
-          </p>
-        </div>
 
-        {/* Programmatic Pillars Overview */}
-        <div className="bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 rounded-2xl p-8 mb-12 border border-blue-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 rounded-full mb-4">
-                <span className="text-2xl">🎯</span>
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Programmatic Pillars</h2>
-              <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-                AFADU's work is organized around seven strategic programmatic pillars
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">💊</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Access to Essential Medicines</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Supply chains, forecasting, procurement, last-mile delivery
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">🦠</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Antimicrobial Resistance (AMR)</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Stewardship, AMS programs, surveillance, stewardship systems
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">👥</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Health Workforce Capacity</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Clinical mentorship, pharmaceutical care, CME
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">🏘</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Public Health & Community</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Health literacy, SBCC, media advocacy
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">📊</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Evidence & Policy Support</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Operational research, policy analysis, guideline development
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">🏥</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Integrated Community Health</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  CHV support, MNCAH, NCD screening
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xl">🚭</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">Alcohol & Substance Prevention</h3>
-                </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Prevention, awareness, rehabilitation support
-                </p>
-              </div>
-            </div>
-            
-            {/* SDG3 Alignment Badge */}
-            <div className="flex justify-center mt-8">
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-full px-6 py-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-white font-bold text-sm">3</span>
-                </div>
-                <span className="text-blue-800 font-semibold">Aligned with SDG3: Universal Health Coverage</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* ── OUR SERVICES — 4-col icon + title + text (white, iasr style) ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Category Filter */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex rounded-lg bg-gradient-to-r from-blue-50 to-green-50 p-1 border border-blue-200">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
-                  activeCategory === category.id
-                    ? 'bg-white text-blue-600 shadow-md border border-blue-300'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
-                }`}
-              >
-                {category.label}
-              </button>
+          <h2 className="text-center font-bold text-blue-900 text-3xl lg:text-4xl mb-16 tracking-wide">
+            OUR PROGRAMS
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
+            {programs.map((program) => (
+              <div key={program.title} className="flex flex-col items-center text-center">
+                {/* Icon */}
+                <div className="mb-5 flex items-center justify-center">
+                  {program.icon}
+                </div>
+                {/* Title */}
+                <h3 className="font-bold text-blue-900 text-lg leading-snug mb-3">
+                  {program.title}
+                </h3>
+                {/* Description */}
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {program.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredPrograms.map((program, index) => (
-            <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              {/* Program Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-green-600 p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-2xl">{program.icon}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{program.title}</h3>
-                      <span className={`inline-block px-2 py-1 text-xs font-semibold rounded-full ${
-                        program.status === 'Active' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {program.status}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Program Content */}
-              <div className="p-6">
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  {program.description}
-                </p>
-
-                {/* Features */}
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Key Features:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {program.features.map((feature, index) => (
-                      <span 
-                        key={index}
-                        className="px-3 py-1 bg-gradient-to-r from-blue-100 to-green-100 text-blue-700 rounded-full text-sm border border-blue-200"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Impact */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">Impact:</h4>
-                  <p className="text-blue-600 font-medium">{program.impact}</p>
-                </div>
-              </div>
+      {/* ── AREAS OF SPECIALTY (navy) ───────────────────────────────────── */}
+      <section className="py-20 bg-blue-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-500" />
+              <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Focus Areas</span>
+              <span className="w-8 h-0.5 bg-green-500" />
             </div>
-          ))}
+            <h2 className="font-display text-4xl font-bold text-white uppercase">Areas of Specialty</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {pillars.map((item) => (
+              <div key={item.label} className="bg-white/10 rounded-xl p-6 border border-white/10 hover:bg-white/15 transition-colors duration-200">
+                <h3 className="font-display text-sm font-bold text-white uppercase mb-2">{item.label}</h3>
+                <p className="text-blue-300 text-xs leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Call to Action */}
-        <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Get Involved in Our Programs
-          </h2>
-          <p className="text-xl mb-6 max-w-3xl mx-auto text-blue-100">
-            Whether you're a healthcare professional, community leader, or concerned citizen, 
+      {/* ── IMPACT STATS (white) ────────────────────────────────────────── */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-0.5 bg-green-600" />
+              <span className="text-xs font-bold text-green-700 tracking-widest uppercase">Program Impact</span>
+              <span className="w-8 h-0.5 bg-green-600" />
+            </div>
+            <h2 className="font-display text-3xl font-bold text-blue-950 uppercase">Results That Matter</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { value: '7', label: 'Program Areas', sub: 'Integrated strategic pillars' },
+              { value: '47', label: 'Counties Reached', sub: 'Nationwide implementation' },
+              { value: '5,000+', label: 'Workers Trained', sub: 'Healthcare professionals' },
+              { value: '200+', label: 'Health Facilities', sub: 'Supported & strengthened' },
+            ].map((s) => (
+              <div key={s.label} className="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-100">
+                <div className="font-display text-4xl font-bold text-blue-900 uppercase mb-1">{s.value}</div>
+                <div className="font-bold text-gray-800 text-sm mb-1">{s.label}</div>
+                <div className="text-gray-400 text-xs">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA (navy) ──────────────────────────────────────────────────── */}
+      <section className="py-16 bg-blue-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-8 h-0.5 bg-green-500" />
+            <span className="text-xs font-bold text-green-400 tracking-widest uppercase">Get Involved</span>
+            <span className="w-8 h-0.5 bg-green-500" />
+          </div>
+          <h2 className="font-display text-3xl font-bold text-white uppercase mb-4">Partner With Our Programs</h2>
+          <p className="text-blue-200 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
+            Whether you are a healthcare professional, community leader, or concerned citizen,
             there are many ways to contribute to our mission of promoting rational medicine use in Kenya.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg"
-            >
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact" className="px-8 py-3.5 bg-green-600 text-white text-sm font-bold uppercase tracking-wide rounded-full hover:bg-green-500 transition-colors duration-200">
               Join Our Programs
             </a>
-            <a 
-              href="/donate" 
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors duration-200"
-            >
+            <a href="/donate" className="px-8 py-3.5 text-white text-sm font-bold uppercase tracking-wide rounded-full border border-white/30 hover:bg-white/10 transition-colors duration-200">
               Support Our Work
             </a>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
     </>
   );
 };
