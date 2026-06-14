@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 const boardMembers = [
   {
     id: 'willis-ayieko',
-    name: 'Professor Willis Ayieko',
+    name: 'Professor Philip Ayieko',
     title: 'Board Chairperson',
     image: '/images/Prof Willis.png',
     currentRole: 'Assistant Professor of Medical Statistics and Epidemiology, London School of Hygiene & Tropical Medicine',
