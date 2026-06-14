@@ -3,11 +3,7 @@
 import Navbar from '@/components/Navbar';
 
 const photos = [
-  '/images/afudu5.jpg',
-  '/images/afudu1.webp',
   '/images/boardroom.png',
-  '/images/afudu3.jpg',
-  '/images/healthcare-1.jpg',
 ];
 
 const About = () => {

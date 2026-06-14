@@ -17,14 +17,14 @@ const Navbar = () => {
   return (
     <div className="bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-28">
+        <div className="flex items-center h-40">
 
           {/* Logo — far left, large */}
           <a href="/" className="flex-shrink-0 flex items-center">
             <img
               src="/images/bglogo.png"
               alt="AFADU"
-              className="h-24 w-auto"
+              className="h-36 w-auto"
             />
           </a>
 
