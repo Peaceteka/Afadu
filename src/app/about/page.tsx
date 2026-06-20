@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 
 const photos = [
   '/images/boardroom.png',
+  '/images/image2.png',
 ];
 
 const About = () => {
@@ -128,7 +129,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div
               className="rounded-2xl overflow-hidden h-80 lg:h-96 bg-cover bg-center shadow-xl"
-              style={{ backgroundImage: 'url(/images/afudu1.webp)' }}
+              style={{ backgroundImage: 'url(/images/image1.png)' }}
             />
             <div>
               <div className="flex items-center gap-2 mb-5">
