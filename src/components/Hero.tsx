@@ -29,23 +29,31 @@ const Hero = () => {
 
   return (
     <section className="relative bg-blue-950 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[88vh]">
+      {/* Vibrant graphic backdrop spanning the whole hero */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-700 via-blue-900 to-green-700" />
+        <div className="absolute -top-24 -left-16 w-96 h-96 bg-green-400/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-10 w-[28rem] h-[28rem] bg-blue-400/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-green-400/20 rounded-full blur-3xl" />
+        {/* Subtle dot grid texture */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1.5px, transparent 1.5px)',
+            backgroundSize: '26px 26px',
+          }}
+        />
+        {/* Floating pill motifs (echo the AFADU logo) */}
+        <div className="absolute top-16 right-24 w-28 h-12 bg-green-400/40 rounded-full rotate-45" />
+        <div className="absolute bottom-24 left-24 w-36 h-14 bg-white/15 rounded-full -rotate-12" />
+      </div>
 
-          {/* LEFT — full-bleed photo, fills 7 cols */}
-          <div className="hidden lg:block lg:col-span-7 relative -ml-8">
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: 'url(/images/afudu5.jpg)' }}
-            />
-            {/* Right-side fade so content card reads over it */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-blue-950/80" />
-          </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[88vh] flex items-center py-10 lg:py-14">
+        {/* Large white card — almost covers the hero */}
+        <div className="w-full bg-white shadow-2xl rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-5">
 
-          {/* RIGHT — overlapping white content card, 5 cols */}
-          <div className="lg:col-span-5 relative z-10 flex items-center">
-            {/* Card overlaps the image by pulling left */}
-            <div className="w-full lg:-ml-20 bg-white shadow-2xl rounded-2xl px-8 py-12 lg:px-12 my-12 lg:my-16">
+          {/* LEFT column — main content */}
+          <div className="lg:col-span-3 px-8 py-12 sm:px-12 lg:px-16 lg:py-20 flex flex-col justify-center">
 
               {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-6">
@@ -103,8 +111,35 @@ const Hero = () => {
                   Learn More
                 </a>
               </div>
+          </div>
+
+          {/* RIGHT column — vibrant accent panel */}
+          <div className="hidden lg:flex lg:col-span-2 relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-900 to-green-700 items-center justify-center p-10">
+            {/* Soft glow */}
+            <div className="absolute -top-16 -right-10 w-72 h-72 bg-green-400/30 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/30 rounded-full blur-3xl" />
+            {/* Dot grid */}
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1.5px, transparent 1.5px)',
+                backgroundSize: '24px 24px',
+              }}
+            />
+            {/* Pill motifs */}
+            <div className="absolute top-12 left-8 w-24 h-10 bg-green-400/40 rounded-full rotate-45" />
+            <div className="absolute bottom-16 right-8 w-28 h-11 bg-white/15 rounded-full -rotate-12" />
+
+            <div className="relative text-center">
+              <span className="block text-xs font-bold text-green-300 tracking-[0.3em] uppercase mb-3">
+                Est. 2008
+              </span>
+              <span className="block font-display text-2xl font-bold text-white uppercase leading-snug">
+                Championing rational medicine use
+              </span>
             </div>
           </div>
+
         </div>
       </div>
 

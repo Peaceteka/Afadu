@@ -153,11 +153,11 @@ export default function Home() {
 
             {/* Image with overlay */}
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-blue-950">
                 <img
-                  src="/images/afudu2.jpeg"
+                  src="/images/image2.png"
                   alt="AFADU in action"
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
