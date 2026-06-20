@@ -127,10 +127,23 @@ const About = () => {
       <section className="py-20 bg-blue-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div
-              className="rounded-2xl overflow-hidden h-80 lg:h-96 bg-cover bg-center shadow-xl"
-              style={{ backgroundImage: 'url(/images/image1.png)' }}
-            />
+            {/* Vibrant graphic placeholder (until a real photo is added) */}
+            <div className="relative rounded-2xl overflow-hidden h-80 lg:h-96 shadow-xl bg-gradient-to-br from-blue-700 via-blue-900 to-green-700">
+              <div className="absolute -top-16 -left-10 w-72 h-72 bg-green-400/30 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl" />
+              <div
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1.5px, transparent 1.5px)',
+                  backgroundSize: '24px 24px',
+                }}
+              />
+              <div className="absolute top-12 right-10 w-24 h-10 bg-green-400/40 rounded-full rotate-45" />
+              <div className="absolute bottom-14 left-10 w-28 h-11 bg-white/15 rounded-full -rotate-12" />
+              <div className="absolute inset-0 flex items-center justify-center p-8">
+                <img src="/images/Afadulogo.png" alt="AFADU" className="h-20 w-auto opacity-90" />
+              </div>
+            </div>
             <div>
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-8 h-0.5 bg-green-500" />
